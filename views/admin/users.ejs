@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+
+
+<%-include('include/head-css-file.ejs')-%>
+
+
+<body>
+	<!--wrapper-->
+	<div class="wrapper">
+		<!--sidebar wrapper -->
+		<%- include('./include/sidebar.ejs'); -%>
+		<!--end sidebar wrapper -->
+		<!--start header -->
+		<%-include('./include/header.ejs')-%>
+		<!--end header -->
+		<!--start page wrapper -->
+		<div class="page-wrapper">
+			<div class="page-content">
+				<!--breadcrumb-->
+				<div class="page-breadcrumb d-none d-sm-flex align-userss-center mb-3">
+					<div class="breadcrumb-title pe-3">Home</div>
+					<div class="ps-3">
+						<nav aria-label="breadcrumb">
+							<ol class="breadcrumb mb-0 p-0">
+								<li class="breadcrumb-users"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
+								</li>
+								<li class="breadcrumb-users active" aria-current="page">Users</li>
+							</ol>
+						</nav>
+					</div>
+				</div>
+				<!--end breadcrumb-->
+				<div class="row">
+					<div class="col-xl-12 mx-auto">
+						<div class="card">
+							
+							<div class="card-body p-12">
+								<div class="row">
+									 <h3 class="mb-0 text-uppercase col-xl-9">Users</h3>
+									 <div class="d-md-flex d-grid align-items-center gap-3 float-right col-xl-3">
+									 	<a href="/add-user" class="btn btn-primary radius-30 mt-0 mt-lg-0" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bx bxs-plus-square"></i>Add New  User</a>
+									</div>
+							   </div>
+					      		<hr/>
+
+								<!--***************************************************-->
+
+                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+									<div class="modal-dialog">
+												<div class="modal-content">
+													<div class="modal-header">
+														<h5 class="modal-title" id="exampleModalLabel">Add User</h5>
+														<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+													</div>
+													<div class="modal-body">
+														<form class="row g-3" method='post' id='add-user'>
+															<div class="col-12">
+																<label for="inputUsername" class="form-label">Full Name</label>
+																<input type="text" name='full_name' class="form-control" id="inputUsername" placeholder="Jhon">
+																<span class="text-danger" id="full_name"></span>
+															   </div>
+															<div class="col-12">
+																<label for="inputEmailAddress" class="form-label">Phone Number</label>
+																<input type="text" name='phone' class="form-control" id="inputPhoneAddress" placeholder="03331111111">
+																<span class="text-danger" id="phone"></span>
+															</div>
+															<div class="col-12">
+																<label for="inputEmailAddress" class="form-label">Email Address</label>
+																<input type="text" name='email' class="form-control" id="inputEmailAddress" placeholder="example@user.com">
+																<span class="text-danger" id="email"></span>
+				
+															</div>
+															<div class="col-12">
+																<label for="inputChoosePassword" class="form-label">Password</label>
+																<div class="input-group" id="show_hide_password">
+																	<input type="password" class="form-control border-end-0" id="inputChoosePassword" name='password'  placeholder="Enter Password"> 
+																	<a href="javascript:;" class="input-group-text bg-transparent"><i class='bx bx-hide'></i></a>
+																</div>
+																<span class="text-danger" id="password"></span>
+															</div>
+															
+															
+															<div class="col-12">
+																<div class="d-grid">
+																	<button type="submit" class="btn btn-primary">Create User</button>
+																</div>
+															</div>
+															
+														</form>
+														
+													</div>
+													
+												</div>
+											</div>
+								</div>
+								<!--End of Add User modal-->
+								<div class="card">
+									<div class="card-body">
+										<div class="table-responsive">
+											<table id="example2" class="table mb-0">
+												<thead>
+													<tr>
+														<th>S No#</th>
+														<th>Name</th>
+														<th>Image</th>
+														<th>Email</th>
+														<th>Phone</th>
+														<th>Mobile</th>
+														<th>Gender</th>
+														<th>Active/De-active</th>
+														<th>--</th>
+														<th>Assign Role</th>
+														<th>Edit</th>
+													</tr>
+												</thead>
+												<tbody>
+													 <%	let i=1;
+				                                     if(user !=""){
+				                                     if (user && user.length > 0) { 
+													 user.forEach((users) => { %>
+													<tr id='trid_<%= users._id%>' ">
+														<td><%= i++ %></td>
+														<td><%= users.full_name %></td>
+														<td><img src='<%= (users.image == 'test.jpg')?'admin_assets/users/test.jpg':users.image %>' style='height:50px;width:50px; border-radius: 50%;'</td>
+														<td><%= users.email %></td>
+														<td><%= users.phone %></td>
+														<td><%= users.mobile%></td>
+														<td><%= users.gender %></td>
+														<td style="font-weight: bold; color: <%= users.status === 'De-active' ? 'red' : 'green' %>">
+															<%= users.status %>
+														</td>
+														<td>
+															<select class="form-control mySelect"  data-status="<%= users._id%>" class="form-control">
+																<option value="">Select an option</option>
+																<option value="active" <%= (users.status == "active"?'selected':'');%>>Active</option>
+																<option  value="deactive" <%= (users.status == "deactive"?'selected':'');%>>De-active</option>
+												
+                                            				</select>
+														</td>
+														<td>
+															<select class="form-control mySelectRole" data-role="<%= users._id%>" name="roleId">
+																<% if (roles && roles.length > 0) { %>
+																	<% roles.forEach((item) => { %>
+																		<option value="<%= item._id %>"><%= item.role_name %></option>
+																	<% }); %>
+																<% } %>
+															</select>
+														</td>
+	
+														<td>   
+                                                             <div class="d-flex order-actions">
+																<a href="javascript:;" class=""><i class="bx bxs-edit"></i></a> &nbsp;
+																<a href="javascript:;" class=""><i class="bx bxs-user"></i></a>
+
+															</div>      
+														</td>
+													</tr>
+
+													<% });} }%>
+												</tbody>
+												
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--end row-->
+
+
+
+		   </div>
+		</div>
+		<!--end page wrapper -->
+		<!--start overlay-->
+		<div class="overlay toggle-icon"></div>
+		<!--end overlay-->
+		<!--Start Back To Top Button--> <a href="javaScript:;" class="back-to-top">
+			<i class='bx bxs-up-arrow-alt'></i></a>
+		<!--End Back To Top Button-->
+		<footer class="page-footer">
+			<p class="mb-0">Copyright © 2023. All right reserved.</p>
+		</footer>
+	</div>
+	<!--end wrapper-->
+
+	
+
+
+
+	<%-include('include/footer.ejs')-%>
+	<script>
+		$(document).ready(function() {
+			
+			// Listen for changes on all select elements with the 'mySelect' class
+			$('.mySelect').on('change', function() {
+				var selectedStatus = $(this).val(); // Get selected value
+				var dataStatus = $(this).data('status'); // Get data-status attribute value
+			    if(selectedStatus != '' && dataStatus != ''){
+					$.ajax({
+						url: '/update_users_status/' + dataStatus, // Construct the URL dynamically
+						method: 'PUT',
+						contentType: 'application/json', // Set content type as JSON
+						data: JSON.stringify({ status: selectedStatus }), // Send the status in the body
+						success: function(response) {
+							// On success, dynamically update the page content
+							console.log(response); // Log the response (can be removed later)
+							
+							
+						},
+						error: function(xhr, status, error) {
+							// Handle any errors
+							console.error('Error:', error);
+							$('#output').html('<p style="color: red;">Error: ' + error + '</p>');
+						}
+					});
+				} else {
+					// If no valid selection, clear the output or handle accordingly
+					$('#output').empty();
+				}
+			});
+			$('.mySelectRole').on('change', function() {
+				var selectedRole = $(this).val(); // Get selected value
+				var dataRole = $(this).data('role'); // Get data-status attribute value
+			    if(selectedRole != '' && dataRole != ''){
+					$.ajax({
+						url: '/update_users_role/' + dataRole, // Construct the URL dynamically
+						method: 'PUT',
+						contentType: 'application/json', // Set content type as JSON
+						data: JSON.stringify({ status: selectedRole }), // Send the status in the body
+						success: function(response) {
+							// On success, dynamically update the page content
+							console.log(response); // Log the response (can be removed later)
+							
+							
+						},
+						error: function(xhr, status, error) {
+							// Handle any errors
+							console.error('Error:', error);
+							$('#output').html('<p style="color: red;">Error: ' + error + '</p>');
+						}
+					});
+				} else {
+					// If no valid selection, clear the output or handle accordingly
+					$('#output').empty();
+				}
+			});
+		
+		});
+	</script>

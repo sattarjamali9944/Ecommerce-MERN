@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+
+
+<!-- Mirrored from codervent.com/rocker/demo/vertical/auth-header-footer-forgot-password.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 08 Apr 2023 19:37:43 GMT -->
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--favicon-->
+	<link rel="icon" href="admin_assets/images/favicon-32x32.png" type="image/png" />
+	<!--plugins-->
+	<link href="admin_assets/plugins/simplebar/css/simplebar.css" rel="stylesheet" />
+	<link href="admin_assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet" />
+	<link href="admin_assets/plugins/metismenu/css/metisMenu.min.css" rel="stylesheet" />
+	<!-- loader-->
+	<link href="admin_assets/css/pace.min.css" rel="stylesheet" />
+	<script src="admin_assets/js/pace.min.js"></script>
+	<!-- Bootstrap CSS -->
+	<link href="admin_assets/css/bootstrap.min.css" rel="stylesheet">
+	<link href="admin_assets/css/bootstrap-extended.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&amp;display=swap" rel="stylesheet">
+	<link href="admin_assets/css/app.css" rel="stylesheet">
+	<link href="admin_assets/css/icons.css" rel="stylesheet">
+	<title><%- pageTitle -%></title>
+</head>
+
+<body class="">
+	<!--wrapper-->
+	<div class="wrapper">
+		
+		<div class="section-authentication-signin d-flex align-items-center justify-content-center my-5 my-lg-4">
+			<div class="container">
+				<div class="row row-cols-1 row-cols-lg-2 row-cols-xl-3">
+					<div class="col mx-auto">
+						<div class="card my-5 my-lg-0 shadow-none border">
+							
+							<div class="card-body">
+								
+										
+									<div class="p-4">
+										<div class="text-center">
+											<img src="admin_assets/images/icons/forgot-2.png" width="100" alt="" />
+										</div>
+										<h4 class="mt-5 font-weight-bold">Forgot Password?</h4>
+										<p class="text-muted">Enter your registered email ID to reset the password</p>
+										<div  id='check' role="alert"><!--Erorr message div-->
+											
+										</div>
+										<form class="row g-3" method='post' id="forgetPassForm">
+								
+										<div class="my-4">
+											<label class="form-label">Email</label>
+											<input type="text" id="email" name="email" class="form-control" placeholder="example@user.com" />
+										</div>
+										<div class="d-grid gap-2">
+											<button type="submit" class="btn btn-primary" name="btn">Send</button>
+											 <a href="/" class="btn btn-light"><i class='bx bx-arrow-back me-1'></i>Back to Login</a>
+										</div>
+									</div>
+								</form>	
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--end row-->
+			</div>
+		</div>
+		<footer class="bg-white shadow-none border-top p-2 text-center fixed-bottom">
+			<p class="mb-0">Copyright © 2022. All right reserved.</p>
+		</footer>
+	</div>
+	<!--end wrapper-->
+	<!-- Bootstrap JS -->
+	<script src="admin_assets/js/bootstrap.bundle.min.js"></script>
+	<!--plugins-->
+	<script src="admin_assets/js/jquery.min.js"></script>
+	<script src="admin_assets/plugins/simplebar/js/simplebar.min.js"></script>
+	<script src="admin_assets/plugins/metismenu/js/metisMenu.min.js"></script>
+	<script src="admin_assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script>
+	<!--Password show & hide js -->
+	<script>
+		$(document).ready(function () {
+			$( "#forgetPassForm" ).submit(function(event) {
+				$('#check').hide();
+				event.preventDefault();
+				
+				$.ajax({
+					type: 'POST',
+					url: '/forgetpass_Create',
+					data: {email:$('#email').val()},
+					dataType: "json",
+					success: function(response){
+						     
+						      $('#check').show();
+						      ((response.error === false)?$('#check').html(response.message).addClass('alert alert-danger alert-dismissible'):'');
+		
+						      ((response.success === true)?$('#check').html(response.message+"</br>"+response.email).addClass('alert alert-success alert-dismissible'):'');
+					          if (response.success === true){
+					          	$('#forgetPassForm').hide();
+					          	window.setTimeout(function(){
+								// Move to a new location or you can do something else
+	        						window.location.href = "/opt";
+									}, 5000);
+					          }
+                               
+					},
+         			error: function() {
+         					console.log('error');
+         			}
+         		})
+			});
+		});
+	</script>
+	<!--app JS-->
+	<script src="admin_assets/js/app.js"></script>
+</body>
+
+
+</html>

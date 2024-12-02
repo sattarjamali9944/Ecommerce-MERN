@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+
+<%-include('include/head-css-file.ejs')-%>
+
+
+<body>
+	<!--wrapper-->
+	<div class="wrapper">
+		<%- include('./include/sidebar.ejs'); -%>
+		<!--end sidebar wrapper -->
+		<!--start header -->
+		<%-include('./include/header.ejs')-%>
+		<!--end header -->
+		<!--end header -->
+		<!--start page wrapper -->
+		<div class="page-wrapper">
+			<div class="page-content">
+				<!--breadcrumb-->
+				<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+					<div class="breadcrumb-title pe-3">Home</div>
+					<div class="ps-3">
+						<nav aria-label="breadcrumb">
+							<ol class="breadcrumb mb-0 p-0">
+								<li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
+								</li>
+								<li class="breadcrumb-item active" aria-current="page">Add Banner</li>
+							</ol>
+						</nav>
+					</div>
+					
+				</div>
+				<!--end breadcrumb-->
+				<div class="row">
+
+					<div class="col-xl-12 mx-auto">
+						
+						<div class="card">
+							<div class="card-body p-4">
+								<% if (errors.length > 0) { 
+									
+									%>
+									<div class="alert error">
+										<ul>
+											<% errors.forEach(function(error) { %>
+												<li><%= error.msg %></li>
+											<% }); %>
+										</ul>
+									</div>
+								<% } %>
+								<a href='/banner' class='btn btn-primary float-left'>Banner</a>
+								<form class="row g-3" method='post' action='/createbanner' enctype="multipart/form-data">
+									<div class="col-md-8">
+										<label for="input1" class="form-label">Banner Title</label>
+										<input type="text" name='title' class="form-control" id="input1" placeholder="Banner Title">
+									</div>
+									<div class="col-md-8">
+										<label for="input1" class="form-label">Banner Images</label>
+										<input type="file" class="form-control" name="files">
+									</div>
+									
+									
+									
+									<div class="col-md-12">
+										<label for="input11" class="form-label">Detail</label>
+										<textarea  name='detail' class="form-control" id="input11" placeholder="Detail" rows="3"></textarea>
+									</div>
+									
+									<div class="col-md-12">
+										<div class="d-md-flex d-grid align-items-center gap-3">
+											<button type="submit" class="btn btn-primary px-4">Save</button>
+											<button type="button" class="btn btn-light px-4">Reset</button>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--end row-->
+			</div>
+		</div>
+		<!--end page wrapper -->
+		<!--start overlay-->
+		<div class="overlay toggle-icon"></div>
+		<!--end overlay-->
+		<!--Start Back To Top Button--> <a href="javaScript:;" class="back-to-top"><i class='bx bxs-up-arrow-alt'></i></a>
+		<!--End Back To Top Button-->
+		<footer class="page-footer">
+			<p class="mb-0">Copyright © 2023. All right reserved.</p>
+		</footer>
+	</div>
+	<!--end wrapper-->
+
+	<%-include('include/footer.ejs')-%>

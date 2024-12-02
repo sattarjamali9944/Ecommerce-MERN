@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<%-include('include/head-css-file.ejs')-%>
+<body>
+	<!--wrapper-->
+	<div class="wrapper">
+		<!--sidebar wrapper -->
+		<%- include('./include/sidebar.ejs'); -%>
+		<!--end sidebar wrapper -->
+		<!--start header -->
+		<%-include('./include/header.ejs')-%>
+		<!--end header -->
+		<!--start page wrapper -->
+		<div class="page-wrapper">
+			<div class="page-content">
+				<!--breadcrumb-->
+				<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+					<div class="breadcrumb-title pe-3">Home</div>
+					<div class="ps-3">
+						<nav aria-label="breadcrumb">
+							<ol class="breadcrumb mb-0 p-0">
+								<li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
+								</li>
+								<li class="breadcrumb-item active" aria-current="page">Add Attribute</li>
+							</ol>
+						</nav>
+					</div>
+					
+				</div>
+				<!--end breadcrumb-->
+				<div class="row">
+					<div class="col-xl-12 mx-auto">
+						<div class="card">
+							<div class="card-header px-4 py-3">
+								
+							</div>
+							<div class="card-body p-4">
+								<% if (successMessage && successMessage.length > 0) { %>
+                                    <div class="alert alert-success">
+                                          <%= successMessage %>
+                                    </div>
+                                <% } %>
+								<form class="row g-3 needs-validation" action="/add-attribute" method="POST">
+                                    <div class="col-md-6">
+										<label for="bsValidation1" class="form-label">Enter Attribute</label>
+									    <input type="text" class="form-control" id="attributeName" name="name" placeholder="Enter Attribute" required>
+                                    </div> 
+                                    <div class="col-md-12">
+                                        
+                                        <button type="submit" class="btn btn-primary px-4">Create Attribute</button>
+                                    </div>
+                                     
+                                </form>
+
+								
+
+			
+
+                <h3 class="mb-0 text-uppercase">Attributes</h6>
+				<hr/>
+				<div class="card">
+					<div class="card-body">
+						<div class="table-responsive">
+							<table id="example2" class="table table-striped table-bordered">
+								<thead>
+									<tr>
+										<th>SNo#</th>
+										<th>Attribute</th>
+										<th>Delete /Edit</th>
+									</tr>
+								</thead>
+								<tbody>
+                                    <%
+                                    let i=1;
+                                       if(getAttributes !=""){
+                                       if (getAttributes && getAttributes.length > 0) { 
+                                          getAttributes.forEach((attribute) => { %>
+                                         <tr> 
+                                           <td><%= i++%></td>
+                                           <td><%= attribute.attribute_name;%></td>
+                                           <td><select class="form-control mySelect"  data-status="<%= attribute._id%>" class="form-control">
+												<option value="">Select an option</option>
+												<option value="active" <%= (attribute.status == "active"?'selected':'');%>>Active</option>
+												<option  value="deactive" <%= (attribute.status == "deactive"?'selected':'');%>>De-active</option>
+												
+                                            </select></td>
+                                         </tr> 
+                                  <% });} }%>
+								</tbody>
+								
+							</table>
+						</div>
+					</div>
+				</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--end row-->
+
+				
+				<!--end row-->
+
+
+			</div>
+		</div>
+		<!--end page wrapper -->
+		<!--start overlay-->
+		<div class="overlay toggle-icon"></div>
+		<!--end overlay-->
+		<!--Start Back To Top Button--> <a href="javaScript:;" class="back-to-top"><i class='bx bxs-up-arrow-alt'></i></a>
+		<!--End Back To Top Button-->
+		<footer class="page-footer">
+			<p class="mb-0">Copyright © 2023. All right reserved.</p>
+		</footer>
+	</div>
+	<!--end wrapper-->
+
+	
+  
+
+	<%-include('include/footer.ejs')-%>
+	
+<script>
+    $(document).ready(function() {
+		
+        // Listen for changes on all select elements with the 'mySelect' class
+        $('.mySelect').on('change', function() {
+            var selectedStatus = $(this).val(); // Get selected value
+            var dataStatus = $(this).data('status'); // Get data-status attribute value
+           
+        
+		    if(selectedStatus != '' && dataStatus != ''){
+                $.ajax({
+                    url: '/update_attribute_status/' + dataStatus, // Construct the URL dynamically
+                    method: 'PUT',
+                    contentType: 'application/json', // Set content type as JSON
+                    data: JSON.stringify({ status: selectedStatus }), // Send the status in the body
+                    success: function(response) {
+                        // On success, dynamically update the page content
+                        console.log(response); // Log the response (can be removed later)
+                        
+                        
+                    },
+                    error: function(xhr, status, error) {
+                        // Handle any errors
+                        console.error('Error:', error);
+                        $('#output').html('<p style="color: red;">Error: ' + error + '</p>');
+                    }
+                });
+            } else {
+                // If no valid selection, clear the output or handle accordingly
+                $('#output').empty();
+            }
+        });
+    });
+</script>
+
+
+
+
+

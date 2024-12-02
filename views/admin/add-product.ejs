@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+
+<%-include('include/head-css-file.ejs')-%>
+
+
+<body>
+	<!--wrapper-->
+	<div class="wrapper">
+		<%- include('./include/sidebar.ejs'); -%>
+		<!--end sidebar wrapper -->
+		<!--start header -->
+		<%-include('./include/header.ejs')-%>
+		<!--end header -->
+		<!--end header -->
+		<!--start page wrapper -->
+		<div class="page-wrapper">
+			<div class="page-content">
+				<!--breadcrumb-->
+				<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+					<div class="breadcrumb-title pe-3">Home</div>
+					<div class="ps-3">
+						<nav aria-label="breadcrumb">
+							<ol class="breadcrumb mb-0 p-0">
+								<li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
+								</li>
+								<li class="breadcrumb-item active" aria-current="page">Add Product</li>
+							</ol>
+						</nav>
+					</div>
+					
+				</div>
+				<!--end breadcrumb-->
+				<div class="row">
+
+					<div class="col-xl-12 mx-auto">
+						
+						
+						<div class="card">
+							<div class="card-body p-4">
+								<a href='/products' class='btn btn-primary float-left'>Products</a>
+								<% if (errors.length > 0) { 
+									
+									%>
+									<div class="alert error">
+										<ul>
+											<% errors.forEach(function(error) { %>
+												<li><%= error.msg %></li>
+											<% }); %>
+										</ul>
+									</div>
+								<% } %>
+							
+								
+								<form class="row g-3" method='post' action='/createProduct' enctype="multipart/form-data">
+									<div class="col-md-8">
+										<label for="input1" class="form-label">Product Title</label>
+										<input type="hidden" name='userId' value="<%- userId -%>">
+										<input type="text" name='title' class="form-control" id="input1" placeholder="Product Title">
+									</div>
+									<div class="col-md-8">
+										<label for="input1" class="form-label">Product Images</label>
+										<input type="file" class="form-control" name="files">
+									</div>
+									<div class="col-md-4">
+										<label for="input9" class="form-label">Categories</label>
+										<select name='categoryId' id="input9" class="form-select">
+											<option value='' selected>Choose...</option>
+											<%
+											  let i=1;
+			                                     if(catgories !=""){
+			                                     if (catgories && catgories.length > 0) { 
+												 catgories.forEach((item) => { %>
+											    <option value="<%= item._id%>"><%= item.cat_name;%></option>
+											<% });} }%>		
+											
+										</select>
+									</div>
+									
+									<div class="col-md-4">
+										<label for="input1" class="form-label">Price</label>
+										<input type="text" name='price' class="form-control" id="input1" placeholder="Price">
+									</div>
+									<div class="col-md-4">
+										<label for="input" class="form-label">Enter  Attribute</label>
+									    <select  class="form-control" name="attribute" id="attributeId">
+											<option value="">Choose Attribute</option>
+											<%
+											
+											   if(getAttributes !=""){
+											   if (getAttributes && getAttributes.length > 0) { 
+												  getAttributes.forEach((attribute) => { %>
+												
+												   <option value="<%= attribute._id%>"><%= attribute.attribute_name;%></option>
+												   
+												 
+										  <% });} }%>
+
+										</select>
+                                    </div>
+									<div class="col-md-4">
+										<label for="input" class="form-label">Enter Sub Attribute</label>
+									    <select  class="form-control"  id="subAttribute" name="subattribute">
+											<option value="">Choose Sub Attribute</option>
+											
+
+										</select>
+                                    </div>
+									<div class="col-md-4">
+										<label for="input" class="form-label">Quantity Available in Stock</label>
+									    <input type="text" name='qty' class="form-control" id="input1" placeholder="Available Qunatity">
+                                    </div>
+									<div class="col-md-4">
+										<label for="input" class="form-label">Discount in percent</label>
+									    <input type="text" name='salepercent' class="form-control" id="input1" placeholder="Discount">
+                                    </div>
+									<div class="col-md-4">
+										<label for="input" class="form-label">Warranty</label>
+									    <input type="text" name='warranty' class="form-control" id="input1" placeholder="Warranty:Yes or No">
+                                    </div>
+									<div class="col-md-12">
+										<label for="input11" class="form-label">Detail</label>
+										<textarea  name='detail' class="form-control" id="input11" placeholder="Detail" rows="3"></textarea>
+									</div>
+									
+									<div class="col-md-12">
+										<div class="d-md-flex d-grid align-items-center gap-3">
+											<button type="submit" class="btn btn-primary px-4">Save</button>
+											<button type="button" class="btn btn-light px-4">Reset</button>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--end row-->
+			</div>
+		</div>
+		<!--end page wrapper -->
+		<!--start overlay-->
+		<div class="overlay toggle-icon"></div>
+		<!--end overlay-->
+		<!--Start Back To Top Button--> <a href="javaScript:;" class="back-to-top"><i class='bx bxs-up-arrow-alt'></i></a>
+		<!--End Back To Top Button-->
+		<footer class="page-footer">
+			<p class="mb-0">Copyright © 2023. All right reserved.</p>
+		</footer>
+	</div>
+	<!--end wrapper-->
+
+	<%-include('include/footer.ejs')-%>
+
+	<script>
+    $(document).ready(function() {
+      // When a country is selected, fetch its states
+      $('#attributeId').on('change', function() {
+		
+        const attributeId = $(this).val();
+		
+
+        $('#subAttribute').empty().append(new Option('Select a SubAttribute', ''));  // Reset the state dropdown
+
+        if (attributeId) {
+          // Make an AJAX request to fetch the states for the selected country
+          $.get(`get_sub_attribute/${attributeId}`, function(data) {
+            data.forEach(function(state) {
+              $('#subAttribute').append(new Option(state.sub_attribute_name, state._id));
+            });
+          });
+        }
+      });
+    });
+  </script>
