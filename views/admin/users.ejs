@@ -30,6 +30,29 @@
 						</nav>
 					</div>
 				</div>
+				<div class="row">
+					<div class="modal fade" id="viewModal" tabindex="-1" aria-labelledby="viewModalLabel" aria-hidden="true" style="width:100%">
+						<div class="modal-dialog">
+						  <div class="modal-content">
+							<div class="modal-header">
+							  <h5 class="modal-title" id="viewModalLabel">Item Details</h5>
+							  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body">
+							  <ul class="list-group">
+								<li class="list-group-item"><strong>Full Name:</strong> <span id="view-name"></span></li>
+								<li class="list-group-item"><strong>Description:</strong> <span id="view-phone"></span></li>
+								<li class="list-group-item"><strong>Email:</strong> <span id="view-email"></span></li>
+							  </ul>
+							</div>
+							<div class="modal-footer">
+							  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+							</div>
+						  </div>
+						</div>
+					</div>
+
+				</div>
 				<!--end breadcrumb-->
 				<div class="row">
 					<div class="col-xl-12 mx-auto">
@@ -41,8 +64,43 @@
 									 <div class="d-md-flex d-grid align-items-center gap-3 float-right col-xl-3">
 									 	<a href="/add-user" class="btn btn-primary radius-30 mt-0 mt-lg-0" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bx bxs-plus-square"></i>Add New  User</a>
 									</div>
+									
 							   </div>
 					      		<hr/>
+
+								<!--/*******************Edit Modal **********/-->
+								<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+									<div class="modal-dialog">
+									  <form action="/edit" method="POST" class="modal-content" id="editForm">
+										<div class="modal-header">
+										  <h5 class="modal-title" id="editModalLabel">Edit Item</h5>
+										  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+										</div>
+										<div class="modal-body">
+										  <input type="hidden" name="id" id="edit-id">
+										  <div class="mb-3">
+											<label for="edit-name" class="form-label">Name</label>
+											<input type="text" name="name" id="edit-name" class="form-control" required>
+										  </div>
+										  <div class="mb-3">
+											<label for="edit-description" class="form-label">Email</label>
+											<textarea name="description" id="edit-email" class="form-control"></textarea>
+										  </div>
+										  <div class="mb-3">
+											<label for="edit-price" class="form-label">Phone</label>
+											<input type="number" name="price" id="edit-phone" class="form-control" required>
+										  </div>
+										</div>
+										<div class="modal-footer">
+										  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+										  <button type="submit" class="btn btn-warning">Update</button>
+										</div>
+									  </form>
+									</div>
+								  </div>
+								  
+								
+								  
 
 								<!--***************************************************-->
 
@@ -95,6 +153,8 @@
 											</div>
 								</div>
 								<!--End of Add User modal-->
+
+
 								<div class="card">
 									<div class="card-body">
 										<div class="table-responsive">
@@ -150,8 +210,8 @@
 	
 														<td>   
                                                              <div class="d-flex order-actions">
-																<a href="javascript:;" class=""><i class="bx bxs-edit"></i></a> &nbsp;
-																<a href="javascript:;" class=""><i class="bx bxs-user"></i></a>
+																<a href="javascript:;" class="" data-bs-toggle="modal" data-bs-target="#editModal" onclick="setEditModal('<%= users._id %>')"><i class="bx bxs-edit"></i></a> &nbsp;
+																<a href="javascript:;" class="" data-bs-toggle="modal" data-bs-target="#viewModal"  onclick="setViewModal('<%= users._id %>')" data-id="<%= users._id%>"><i class="bx bxs-user"></i></a>
 
 															</div>      
 														</td>
@@ -193,8 +253,45 @@
 
 	<%-include('include/footer.ejs')-%>
 	<script>
-		$(document).ready(function() {
+		async function setViewModal(id) {
+			 
+				try {
+				const response = await fetch(`/user-info/${id}`);
+				if (!response.ok) {
+					throw new Error('Failed to fetch item details');
+				}
+				const item = await response.json();
+
+				// Populate modal fields
+				document.getElementById('view-name').textContent = item.full_name;
+				document.getElementById('view-phone').textContent = item.phone;
+				document.getElementById('view-email').textContent = item.email;
+				} catch (error) {
+				console.error(error);
+				alert('Failed to load item details');
+				}
+            }
+			async function setEditModal(id) {
+			 alert(id);
+			 try {
+			 const response = await fetch(`/user-info/${id}`);
+			 if (!response.ok) {
+				 throw new Error('Failed to fetch item details');
+			 }
+			 const item = await response.json();
+
+			 // Populate modal fields
+			 document.getElementById('edit-name').value = item.full_name;
+			 document.getElementById('edit-phone').value = item.phone;
+			 document.getElementById('edit-email').value = item.email;
+			 } catch (error) {
+			 console.error(error);
+			 alert('Failed to load item details');
+			 }
+		 }
+	 
 			
+		$(document).ready(function() {
 			// Listen for changes on all select elements with the 'mySelect' class
 			$('.mySelect').on('change', function() {
 				var selectedStatus = $(this).val(); // Get selected value

@@ -255,7 +255,7 @@ const userProfile = async (req,res) => {
         const countries = await Country.find();
         res.render(
                 'admin/user-profile',{
-                pageTitle:'User Profile',
+                 pageTitle:'User Profile',
                 countries:countries,
                 profile:loginUserProfile
 
@@ -383,6 +383,18 @@ const changeUserRole = async (req, res) => {
         res.status(500).send('Server error');
     }
 }
+const getUserInfo = async (req, res) => {
+    try {
+        const userInfo = await users.findById(req.params.id);
+        if (!userInfo) {
+          return res.status(404).json({ message: 'User not found' });
+        }
+        res.json(userInfo);
+      } catch (error) {
+        res.status(500).json({ message: 'Server error' });
+      }
+
+}
 module.exports = {
     addUser,
     postUpdateProfile,
@@ -397,5 +409,6 @@ module.exports = {
     userProfile,
     uploadUserImageFunction,
     allUserJson,
-    changeUserStatus
+    changeUserStatus,
+    getUserInfo
 };

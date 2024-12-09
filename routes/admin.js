@@ -50,7 +50,7 @@ router.post('/opt', userController.optCreate);
 router.post('/update-image', uploadUserImage.single('image'), userController.uploadUserImageFunction);
 router.get('/usersApi', cors(), userController.allUserJson);
 router.put('/update_users_status/:id',userController.changeUserStatus);
-
+router.get('/user-info/:id',userController.getUserInfo);
 /************* Category Controller Routes *************/
 router.get('/add-cat', isLogin, categoryController.addCategory);
 router.post('/add-cat', uploadCategoryImage.single('image'), validationRule.form, categoryController.addCategoryPost);
