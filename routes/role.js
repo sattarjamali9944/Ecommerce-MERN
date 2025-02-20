@@ -7,6 +7,7 @@ const roleController =require('../server/controllers/RoleController');
 router.get('/add-role',roleController.getHome);
 router.post('/add-role',roleController.addRolePost);
 router.delete('/add-role/(:id)', roleController.deleteRole);
+router.get('/edit-role/:id',roleController.getRole);
 
 
 

@@ -67,7 +67,18 @@ exports.deleteRole = async (req, res) =>
             });
         });
 }
+exports.getRole = async (req, res) => {
+    try {
+        const roleInfo = await role.findById(req.params.id);
+        if (!roleInfo) {
+          return res.status(404).json({ message: 'Role not found' });
+        }
+        res.json(roleInfo);
+      } catch (error) {
+        res.status(500).json({ message: 'Server error' });
+      }
 
+}
 
 
 
