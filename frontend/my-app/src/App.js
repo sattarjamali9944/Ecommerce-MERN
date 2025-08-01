@@ -32,8 +32,7 @@ function App() {
         <Route path="/checkout" element={<Checkout/>}/>
         <Route path="/logout" element={<Logout />} />
         <Route path="/category/:id" element={<CategoryDetail/>} />
-       
-      </Routes>
+       </Routes>
     </Router>
   );
 }
