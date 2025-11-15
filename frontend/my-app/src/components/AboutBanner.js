@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Header from './Header';
+import AboutOffer from './AboutOffer';
+
 
 const BannerSlider = () => {
   return (
@@ -8,6 +10,7 @@ const BannerSlider = () => {
       <div className="breadcrumb-infhny">
         <div className="top-header-content">
           <Header/>
+          
 
           <div className="breadcrumb-contentnhy">
             <div className="container">

@@ -89,11 +89,16 @@
 									<a href="javascript:;">
 										<div class="msg-header">
 											<p class="msg-header-title">My Cart</p>
-											<p class="msg-header-badge">10 Items</p>
+											<p class="msg-header-badge"><%- productss.length-%> Items</p>
 										</div>
 									</a>
 									<div class="header-message-list">
-									<% productss.forEach(pro =>{ %>
+									<% 
+										let total = 0;
+										productss.forEach(pro =>{
+										total += pro.price;
+										
+										%>
 										<a class="dropdown-item" href="javascript:;">
 											<div class="d-flex align-items-center gap-3">
 												<div class="position-relative">
@@ -120,7 +125,7 @@
 										<div class="text-center msg-footer">
 											<div class="d-flex align-items-center justify-content-between mb-3">
 												<h5 class="mb-0">Total</h5>
-												<h5 class="mb-0 ms-auto">$489.00</h5>
+												<h5 class="mb-0 ms-auto"><%- total -%></h5>
 											</div>
 											<button class="btn btn-primary w-100">Checkout</button>
 										</div>
