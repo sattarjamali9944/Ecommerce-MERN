@@ -237,7 +237,7 @@
 														<td><%= users.phone %></td>
 														<td><%= users.mobile%></td>
 														<td><%= users.gender %></td>
-														<td style="font-weight: bold; color: <%= users.status === 'De-active' ? 'red' : 'green' %>">
+														<td style="font-weight: bold; color: <%= users.status === 'deactive' ||  users.status === 'De-active' ? 'red' : 'green' %>">
 															<%= users.status %>
 														</td>
 														<td>
@@ -252,7 +252,7 @@
 															<select class="form-control mySelectRole" data-role="<%= users._id%>" name="roleId">
 																<% if (roles && roles.length > 0) { %>
 																	<% roles.forEach((item) => { %>
-																		<option value="<%= item._id %>"><%= item.role_name %></option>
+																		<option value="<%= item.role_name %>" <%= (users.role === item.role_name ?'selected':'');%>><%= item.role_name %></option>
 																	<% }); %>
 																<% } %>
 															</select>
@@ -388,7 +388,8 @@
 							// On success, dynamically update the page content
 							console.log(response); // Log the response (can be removed later)
 							
-							
+							alert(response.message);
+							location.reload();
 						},
 						error: function(xhr, status, error) {
 							// Handle any errors
@@ -404,15 +405,19 @@
 			$('.mySelectRole').on('change', function() {
 				var selectedRole = $(this).val(); // Get selected value
 				var dataRole = $(this).data('role'); // Get data-status attribute value
+				console.log(dataRole);
+				console.log(selectedRole);
 			    if(selectedRole != '' && dataRole != ''){
 					$.ajax({
 						url: '/update_users_role/' + dataRole, // Construct the URL dynamically
 						method: 'PUT',
 						contentType: 'application/json', // Set content type as JSON
-						data: JSON.stringify({ status: selectedRole }), // Send the status in the body
+						data: JSON.stringify({ role: selectedRole }), // Send the status in the body
 						success: function(response) {
 							// On success, dynamically update the page content
 							console.log(response); // Log the response (can be removed later)
+							alert(response.message);
+							location.reload();
 							
 							
 						},

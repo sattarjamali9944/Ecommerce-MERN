@@ -3,6 +3,7 @@ const express = require('express');
 const router = express.Router();
 const  session = require('express-session');
 const cors = require('cors');
+const users = require("../models/User");
 const {
     body,
     validationResult,
@@ -78,6 +79,28 @@ exports.getRole = async (req, res) => {
         res.status(500).json({ message: 'Server error' });
       }
 
+}
+exports.changeUserRole = async (req,res) => {
+    
+
+    try {
+		const updatedUser = await users.findByIdAndUpdate(
+			req.params.id,
+			{ role: req.body.role },
+			{ new: true }
+		);
+		if (!updatedUser) {
+			return res.status(404).send("User not found");
+		}
+		res.json({
+            success: true,
+            message: "Role updated successfully",
+            
+        });
+	} catch (error) {
+		console.error(error);
+		res.status(500).send("Server error");
+	}
 }
 
 
