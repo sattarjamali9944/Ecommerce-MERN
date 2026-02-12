@@ -4,7 +4,8 @@
       <div class="header-top">
         <div class="container">
           <div class="header-left">
-            <a href="tel:#"><i class="icon-phone"></i>Call: +0123 456 789</a>
+            <a href="tel:#"><i class="icon-phone"></i>
+            Call: +0123 456 789</a>
           </div><!-- End .header-left -->
 
           <div class="header-right">
@@ -18,8 +19,9 @@
                       <a href="#">USD</a>
                       <div class="header-menu">
                         <ul>
-                          <li><a href="#">Eur</a></li>
-                          <li><a href="#">Usd</a></li>
+                          <% currencies.forEach(currency => { %>
+                            <li><a href="#"><%= currency.cur_name %></a></li>
+                          <% }) %>
                         </ul>
                       </div><!-- End .header-menu -->
                     </div><!-- End .header-dropdown -->
@@ -29,9 +31,11 @@
                       <a href="#">Engligh</a>
                       <div class="header-menu">
                         <ul>
-                          <li><a href="#">English</a></li>
-                          <li><a href="#">French</a></li>
-                          <li><a href="#">Spanish</a></li>
+                          <% languages.forEach(lang => { %>
+                            <li>
+                              <a href="#"><%= lang.language_name %></a>
+                            </li>
+                          <% }) %>
                         </ul>
                       </div><!-- End .header-menu -->
                     </div><!-- End .header-dropdown -->
@@ -528,17 +532,7 @@
                   <li class="<%= currentMenu === 'coming-soon' ? 'active' : '' %>">
                     <a href="/coming-soon">Coming Soon</a>
                   </li> 
-                  <!--    <li>
-                    <a href="#" class="sf-with-ul">Pages</a>
-
-                    <ul>
-                      <li><a href="product-category-fullwidth.html">Categories</a></li>
-                      <li><a href="login.html">Login</a></li>
-                      <li><a href="faq.html">FAQs</a></li>
-                      <li><a href="404.html">Error 404</a></li>
-                      <li><a href="coming-soon.html">Coming Soon</a></li>
-                    </ul>
-                  </li> -->
+                  
                   <li class="<%= currentMenu === 'contact' ? 'active' : '' %>">
                     <a href="/contact">Contact</a>
                   </li>
