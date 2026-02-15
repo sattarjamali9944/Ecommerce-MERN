@@ -1,48 +1,59 @@
-const Product = require("../models/Product");
+const Productsm = require("../models/commonModels");
 const db = require("../../db");
+
+
 /* get home  */
-exports.getHome = (req, res, next) => {
-	const getCurrency = () => {
-        return new Promise((resolve, reject) => {
-            db.query("SELECT * FROM currency", (err, result) => {
-                if (err) reject(err);
-                else resolve(result);
-            });
-        });
-    };
-    
-    const getLanguages = () => {
-        return new Promise((resolve, reject) => {
-            db.query("SELECT * FROM languages", (err, result) => {
-                if (err) reject(err);
-                else resolve(result);
-            });
-        });
-    };
-    
-    (async () => {
-        try {
-            const currencies = await getCurrency();
-            const languages = await getLanguages();
-    
-            res.render("user/dashboard", {
-                pageTitle: "Home",
-                currentMenu: "home",
-                currencies,
-                languages
-            });
-        } catch (err) {
-            console.error(err);
-        }
-    })();
-    
+exports.getHome = async (req, res) => {
+	try {
+		const [products, productse, productsk, bestSeller] = await Promise.all([
+			Productsm.getAllProducts(),
+			Productsm.getAllProductsElectronic(),
+			Productsm.getAllProductsKids(),
+			Productsm.getBestSeller()
+		]);
+	
+		res.render("user/dashboard", {
+			pageTitle: "Home",
+			currentMenu: "home",
+			products,
+			productse,
+			productsk,
+			bestSeller
+		});
+	} catch (error) {
+		console.error("Error fetching products:", error);
+		res.status(500).render("error", { message: "Failed to load products." });
+	}
+	
 	
 };
-
-/* get about  */
-exports.getAbout = (req, res, next) => {
+exports.searchs = (req, res) => {
+	const { q } = req.query; // q = search term
+	console.log(req.query);
+  
+	if (!q) {
+	  return res.json({ results: [] });
+	}
+  
+	try {
+	  const sql = `SELECT * FROM products WHERE title LIKE ? OR slug LIKE ? LIMIT 10`;
+	  const searchTerm = `%${q.trim()}%`;
+	  db.query(sql, [searchTerm, searchTerm], (err, results) => {
+		if (err) {
+		  console.error(err);
+		  return res.status(500).json({ error: "Database error" });
+		}
+		res.json({ results });
+	  });
+  
+	} catch (error) {
+	  console.error(error);
+	  res.status(500).json({ error: "Server errorjkfjdk" });
+	}
+  };
+exports.getAbout = (req, res) => {
 	res.render("user/about", {
-		pageTitle: "About",
+		pageTitle: "About Us",
 		currentMenu: "about",
 	});
 };
@@ -55,39 +66,6 @@ exports.getAllShops = (req, res, next) => {
 	});
 };
 
-/* save product */
-exports.saveProduct = (req, res, next) => {
-	const title = req.body.title;
-	const imageUrl = req.body.imageUrl;
-	const price = req.body.price;
-	const description = req.body.description;
-	const product = new Product({
-		title: title,
-		price: price,
-		description: description,
-		imageUrl: imageUrl,
-	});
-	product
-		.save()
-		.then((result) => {
-			console.log(result);
-			res.redirect("/get-allProducts");
-		})
-		.catch((err) => {
-			console.log(err);
-		});
-};
-
-/* get all products */
-exports.getAllProducts = async (req, res, next) => {
-	await Product.find().then((products) => {
-		res.setHeader("Content-Type", "application/json");
-		res.render("user/products", {
-			pageTitle: "Products",
-			currentMenu: "product",
-		});
-	});
-};
 /* get coming-soon */
 exports.getComingSoon = (req, res, next) => {
 	res.render("user/coming-soon", {

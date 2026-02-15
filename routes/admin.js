@@ -77,6 +77,8 @@ router.get("/usersApi", cors(), userController.allUserJson);
 router.put("/update_users_status/:id", userController.changeUserStatus);
 router.get("/user-info/:id", userController.getUserInfo);
 router.post("/logins", adminController.logins);
+router.post('/signups',adminController.signups);
+
 /************* Category Controller Routes *************/
 router.get("/add-cat", isLogin, categoryController.addCategory);
 router.post(

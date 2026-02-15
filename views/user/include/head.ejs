@@ -30,4 +30,47 @@
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/skins/skin-demo-14.css">
     <link rel="stylesheet" href="/css/demos/demo-14.css">
+    <style>
+     .header-search-wrapper {
+  position: relative;
+  overflow: visible;
+}
+
+.header-search-wrapper .search-results {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  border: 1px solid #ddd;
+  list-style: none;
+  padding: 0;
+  margin: 5px 0 0 0;
+  z-index: 99999;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.header-search-wrapper .search-results p {
+  padding: 12px 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.header-search-wrapper .search-results p a {
+  display: block;
+  text-decoration: none;
+  color: #000 !important;   /* ✅ BLACK TEXT */
+  font-weight: 500;
+}
+
+.header-search-wrapper .search-results p:hover {
+  background: #f2f2f2;
+}
+
+.header-search-wrapper .search-results p:hover a {
+  color: #000 !important;
+}
+
+
+    </style>      
 </head>

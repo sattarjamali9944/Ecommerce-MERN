@@ -280,228 +280,53 @@
                                                 }
                                             }
                                         }'>
-                 <div class="product text-center">
-                   <figure class="product-media">
-                     <span class="product-label label-sale">Sale</span>
-                     <a href="product-extended.html">
-                       <img src="images/demos/demo-14/products/product-1.jpg" alt="Product image" class="product-image">
-                     </a>
+                 
+                 
+                  <% products.forEach(product => { %>
+                  
+                 
+                    <div class="product text-center">
+                      <figure class="product-media">
+                  
+                        <% if (product.is_sale) { %>
+                          <span class="product-label label-sale">Sale</span>
+                        <% } %>
+                  
+                        <img src="images/demos/demo-14/products/<%= product.image %>"
+                             alt="<%= product.title %>"
+                             class="product-image">
+                  
+                        <div class="product-action">
+                          <a href="#" class="btn-product btn-cart">
+                            <span>add to cart</span>
+                          </a>
+                        </div>
+                      </figure>
+                  
+                      <div class="product-body">
+                        <h3 class="product-title"><%= product.title %></h3>
+                  
+                        <div class="product-price">
+                          <span class="new-price">$<%= product.price %></span>
+                          <% if (product.old_price) { %>
+                            <span class="old-price">Was $<%= product.old_price %></span>
+                          <% } %>
+                        </div>
+                  
+                        <div class="ratings">
+                          <div class="ratings-val" style="width:<%= product.rating * 20 %>%"></div>
+                        </div>
+                        <span>(<%= product.reviews %> Reviews)</span>
+                      </div>
+                    </div>
+                  
+                  
+                  <% }) %>
+                  
+                  
+                 
 
-                     <div class="product-action-vertical">
-                       <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><span>add to wishlist</span></a>
-                       <a href="popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
-                       <a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a>
-                     </div><!-- End .product-action-vertical -->
-
-                     <div class="product-action">
-                       <a href="#" class="btn-product btn-cart" title="Add to cart"><span>add to cart</span></a>
-                     </div><!-- End .product-action -->
-                   </figure><!-- End .product-media -->
-
-                   <div class="product-body">
-                     <div class="product-cat">
-                       <a href="#">Furniture</a>
-                     </div><!-- End .product-cat -->
-                     <h3 class="product-title"><a href="product-extended.html">Butler Stool Ladder</a></h3><!-- End .product-title -->
-                     <div class="product-price">
-                       <span class="new-price">$251.99</span>
-                       <span class="old-price">Was $290.00</span>
-                     </div><!-- End .product-price -->
-                     <div class="ratings-container">
-                       <div class="ratings">
-                         <div class="ratings-val" style="width: 100%;"></div><!-- End .ratings-val -->
-                       </div><!-- End .ratings -->
-                       <span class="ratings-text">( 2 Reviews )</span>
-                     </div><!-- End .rating-container -->
-                   </div><!-- End .product-body -->
-                 </div><!-- End .product -->
-
-                 <div class="product text-center">
-                   <figure class="product-media">
-                     <span class="product-label label-sale">Sale</span>
-                     <a href="product-extended.html">
-                       <img src="images/demos/demo-14/products/product-2.jpg" alt="Product image" class="product-image">
-                     </a>
-
-                     <div class="product-countdown" data-until="+55h" data-relative="true" data-labels-short="true"></div><!-- End .product-countdown -->
-
-                     <div class="product-action-vertical">
-                       <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><span>add to wishlist</span></a>
-                       <a href="popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
-                       <a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a>
-                     </div><!-- End .product-action-vertical -->
-
-                     <div class="product-action">
-                       <a href="#" class="btn-product btn-cart" title="Add to cart"><span>add to cart</span></a>
-                     </div><!-- End .product-action -->
-                   </figure><!-- End .product-media -->
-
-                   <div class="product-body">
-                     <div class="product-cat">
-                       <a href="#">Electronics</a>
-                     </div><!-- End .product-cat -->
-                     <h3 class="product-title"><a href="product-extended.html">Bose - SoundSport wireless headphones</a></h3><!-- End .product-title -->
-                     <div class="product-price">
-                       <span class="new-price">$179.99</span>
-                       <span class="old-price">Was $199.00</span>
-                     </div><!-- End .product-price -->
-                     <div class="ratings-container">
-                       <div class="ratings">
-                         <div class="ratings-val" style="width: 100%;"></div><!-- End .ratings-val -->
-                       </div><!-- End .ratings -->
-                       <span class="ratings-text">( 4 Reviews )</span>
-                     </div><!-- End .rating-container -->
-
-                     <div class="product-nav product-nav-dots">
-                       <a href="#" class="active" style="background: #69b4ff;"><span class="sr-only">Color name</span></a>
-                       <a href="#" style="background: #ff887f;"><span class="sr-only">Color name</span></a>
-                       <a href="#" style="background: #333333;"><span class="sr-only">Color name</span></a>
-                     </div><!-- End .product-nav -->
-                   </div><!-- End .product-body -->
-                 </div><!-- End .product -->
-
-                 <div class="product text-center">
-                   <figure class="product-media">
-                     <a href="product-extended.html">
-                       <img src="images/demos/demo-14/products/product-3.jpg" alt="Product image" class="product-image">
-                     </a>
-
-                     <div class="product-action-vertical">
-                       <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><span>add to wishlist</span></a>
-                       <a href="popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
-                       <a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a>
-                     </div><!-- End .product-action-vertical -->
-
-                     <div class="product-action">
-                       <a href="#" class="btn-product btn-cart" title="Add to cart"><span>add to cart</span></a>
-                     </div><!-- End .product-action -->
-                   </figure><!-- End .product-media -->
-
-                   <div class="product-body">
-                     <div class="product-cat">
-                       <a href="#">Furniture</a>
-                     </div><!-- End .product-cat -->
-                     <h3 class="product-title"><a href="product-extended.html">Can 2-Seater Sofa frame charcoal</a></h3><!-- End .product-title -->
-                     <div class="product-price">
-                       $3,050.00
-                     </div><!-- End .product-price -->
-                     <div class="ratings-container">
-                       <div class="ratings">
-                         <div class="ratings-val" style="width: 60%;"></div><!-- End .ratings-val -->
-                       </div><!-- End .ratings -->
-                       <span class="ratings-text">( 8 Reviews )</span>
-                     </div><!-- End .rating-container -->
-
-                     <div class="product-nav product-nav-dots">
-                       <a href="#" class="active" style="background: #b58555;"><span class="sr-only">Color name</span></a>
-                       <a href="#" style="background: #93a6b0;"><span class="sr-only">Color name</span></a>
-                     </div><!-- End .product-nav -->
-                   </div><!-- End .product-body -->
-                 </div><!-- End .product -->
-
-                 <div class="product text-center">
-                   <figure class="product-media">
-                     <a href="product-extended.html">
-                       <img src="images/demos/demo-14/products/product-4.jpg" alt="Product image" class="product-image">
-                     </a>
-
-                     <div class="product-action-vertical">
-                       <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><span>add to wishlist</span></a>
-                       <a href="popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
-                       <a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a>
-                     </div><!-- End .product-action-vertical -->
-
-                     <div class="product-action">
-                       <a href="#" class="btn-product btn-cart" title="Add to cart"><span>add to cart</span></a>
-                     </div><!-- End .product-action -->
-                   </figure><!-- End .product-media -->
-
-                   <div class="product-body">
-                     <div class="product-cat">
-                       <a href="#">Clothes</a>
-                     </div><!-- End .product-cat -->
-                     <h3 class="product-title"><a href="product-extended.html">Tan suede biker jacket</a></h3><!-- End .product-title -->
-                     <div class="product-price">
-                       $240.00
-                     </div><!-- End .product-price -->
-                     <div class="ratings-container">
-                       <div class="ratings">
-                         <div class="ratings-val" style="width: 80%;"></div><!-- End .ratings-val -->
-                       </div><!-- End .ratings -->
-                       <span class="ratings-text">( 4 Reviews )</span>
-                     </div><!-- End .rating-container -->
-                   </div><!-- End .product-body -->
-                 </div><!-- End .product -->
-
-                 <div class="product text-center">
-                   <figure class="product-media">
-                     <span class="product-label label-top">Top</span>
-                     <a href="product-extended.html">
-                       <img src="images/demos/demo-14/products/product-5.jpg" alt="Product image" class="product-image">
-                     </a>
-
-                     <div class="product-action-vertical">
-                       <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><span>add to wishlist</span></a>
-                       <a href="popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
-                       <a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a>
-                     </div><!-- End .product-action-vertical -->
-
-                     <div class="product-action">
-                       <a href="#" class="btn-product btn-cart" title="Add to cart"><span>add to cart</span></a>
-                     </div><!-- End .product-action -->
-                   </figure><!-- End .product-media -->
-
-                   <div class="product-body">
-                     <div class="product-cat">
-                       <a href="#">Electronics</a>
-                     </div><!-- End .product-cat -->
-                     <h3 class="product-title"><a href="product-extended.html">Sony - Class LED 2160p Smart <br>4K Ultra HD</a></h3><!-- End .product-title -->
-                     <div class="product-price">
-                       $1,699.99
-                     </div><!-- End .product-price -->
-                     <div class="ratings-container">
-                       <div class="ratings">
-                         <div class="ratings-val" style="width: 80%;"></div><!-- End .ratings-val -->
-                       </div><!-- End .ratings -->
-                       <span class="ratings-text">( 10 Reviews )</span>
-                     </div><!-- End .rating-container -->
-                   </div><!-- End .product-body -->
-                 </div><!-- End .product -->
-
-                 <div class="product text-center">
-                   <figure class="product-media">
-                     <span class="product-label label-top">Top</span>
-                     <a href="product-extended.html">
-                       <img src="images/demos/demo-14/products/product-6.jpg" alt="Product image" class="product-image">
-                     </a>
-
-                     <div class="product-action-vertical">
-                       <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><span>add to wishlist</span></a>
-                       <a href="popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
-                       <a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a>
-                     </div><!-- End .product-action-vertical -->
-
-                     <div class="product-action">
-                       <a href="#" class="btn-product btn-cart" title="Add to cart"><span>add to cart</span></a>
-                     </div><!-- End .product-action -->
-                   </figure><!-- End .product-media -->
-
-                   <div class="product-body">
-                     <div class="product-cat">
-                       <a href="#">Laptops</a>
-                     </div><!-- End .product-cat -->
-                     <h3 class="product-title"><a href="product-extended.html">MacBook Pro 13" Display, i5</a></h3><!-- End .product-title -->
-                     <div class="product-price">
-                       $1,199.99
-                     </div><!-- End .product-price -->
-                     <div class="ratings-container">
-                       <div class="ratings">
-                         <div class="ratings-val" style="width: 100%;"></div><!-- End .ratings-val -->
-                       </div><!-- End .ratings -->
-                       <span class="ratings-text">( 4 Reviews )</span>
-                     </div><!-- End .rating-container -->
-                   </div><!-- End .product-body -->
-                 </div><!-- End .product -->
+                 
                </div><!-- End .owl-carousel -->
              </div><!-- .End .tab-pane -->
              <div class="tab-pane p-0 fade" id="trending-elec-tab" role="tabpanel" aria-labelledby="trending-elec-link">
@@ -533,228 +358,48 @@
                                                 }
                                             }
                                         }'>
-                 <div class="product text-center">
-                   <figure class="product-media">
-                     <a href="product-extended.html">
-                       <img src="images/demos/demo-14/products/product-3.jpg" alt="Product image" class="product-image">
-                     </a>
-
-                     <div class="product-action-vertical">
-                       <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><span>add to wishlist</span></a>
-                       <a href="popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
-                       <a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a>
-                     </div><!-- End .product-action-vertical -->
-
-                     <div class="product-action">
-                       <a href="#" class="btn-product btn-cart" title="Add to cart"><span>add to cart</span></a>
-                     </div><!-- End .product-action -->
-                   </figure><!-- End .product-media -->
-
-                   <div class="product-body">
-                     <div class="product-cat">
-                       <a href="#">Furniture</a>
-                     </div><!-- End .product-cat -->
-                     <h3 class="product-title"><a href="product-extended.html">Can 2-Seater Sofa frame charcoal</a></h3><!-- End .product-title -->
-                     <div class="product-price">
-                       $3,050.00
-                     </div><!-- End .product-price -->
-                     <div class="ratings-container">
-                       <div class="ratings">
-                         <div class="ratings-val" style="width: 60%;"></div><!-- End .ratings-val -->
-                       </div><!-- End .ratings -->
-                       <span class="ratings-text">( 8 Reviews )</span>
-                     </div><!-- End .rating-container -->
-
-                     <div class="product-nav product-nav-dots">
-                       <a href="#" class="active" style="background: #b58555;"><span class="sr-only">Color name</span></a>
-                       <a href="#" style="background: #93a6b0;"><span class="sr-only">Color name</span></a>
-                     </div><!-- End .product-nav -->
-                   </div><!-- End .product-body -->
-                 </div><!-- End .product -->
-
-                 <div class="product text-center">
-                   <figure class="product-media">
-                     <a href="product-extended.html">
-                       <img src="images/demos/demo-14/products/product-4.jpg" alt="Product image" class="product-image">
-                     </a>
-
-                     <div class="product-action-vertical">
-                       <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><span>add to wishlist</span></a>
-                       <a href="popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
-                       <a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a>
-                     </div><!-- End .product-action-vertical -->
-
-                     <div class="product-action">
-                       <a href="#" class="btn-product btn-cart" title="Add to cart"><span>add to cart</span></a>
-                     </div><!-- End .product-action -->
-                   </figure><!-- End .product-media -->
-
-                   <div class="product-body">
-                     <div class="product-cat">
-                       <a href="#">Clothes</a>
-                     </div><!-- End .product-cat -->
-                     <h3 class="product-title"><a href="product-extended.html">Tan suede biker jacket</a></h3><!-- End .product-title -->
-                     <div class="product-price">
-                       $240.00
-                     </div><!-- End .product-price -->
-                     <div class="ratings-container">
-                       <div class="ratings">
-                         <div class="ratings-val" style="width: 80%;"></div><!-- End .ratings-val -->
-                       </div><!-- End .ratings -->
-                       <span class="ratings-text">( 4 Reviews )</span>
-                     </div><!-- End .rating-container -->
-                   </div><!-- End .product-body -->
-                 </div><!-- End .product -->
-
-                 <div class="product text-center">
-                   <figure class="product-media">
-                     <span class="product-label label-sale">Sale</span>
-                     <a href="product-extended.html">
-                       <img src="images/demos/demo-14/products/product-1.jpg" alt="Product image" class="product-image">
-                     </a>
-
-                     <div class="product-action-vertical">
-                       <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><span>add to wishlist</span></a>
-                       <a href="popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
-                       <a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a>
-                     </div><!-- End .product-action-vertical -->
-
-                     <div class="product-action">
-                       <a href="#" class="btn-product btn-cart" title="Add to cart"><span>add to cart</span></a>
-                     </div><!-- End .product-action -->
-                   </figure><!-- End .product-media -->
-
-                   <div class="product-body">
-                     <div class="product-cat">
-                       <a href="#">Furniture</a>
-                     </div><!-- End .product-cat -->
-                     <h3 class="product-title"><a href="product-extended.html">Butler Stool Ladder</a></h3><!-- End .product-title -->
-                     <div class="product-price">
-                       <span class="new-price">$251.99</span>
-                       <span class="old-price">Was $290.00</span>
-                     </div><!-- End .product-price -->
-                     <div class="ratings-container">
-                       <div class="ratings">
-                         <div class="ratings-val" style="width: 100%;"></div><!-- End .ratings-val -->
-                       </div><!-- End .ratings -->
-                       <span class="ratings-text">( 2 Reviews )</span>
-                     </div><!-- End .rating-container -->
-                   </div><!-- End .product-body -->
-                 </div><!-- End .product -->
-
-                 <div class="product text-center">
-                   <figure class="product-media">
-                     <span class="product-label label-sale">Sale</span>
-                     <a href="product-extended.html">
-                       <img src="images/demos/demo-14/products/product-2.jpg" alt="Product image" class="product-image">
-                     </a>
-
-                     <div class="product-countdown" data-until="+55h" data-relative="true" data-labels-short="true"></div><!-- End .product-countdown -->
-
-                     <div class="product-action-vertical">
-                       <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><span>add to wishlist</span></a>
-                       <a href="popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
-                       <a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a>
-                     </div><!-- End .product-action-vertical -->
-
-                     <div class="product-action">
-                       <a href="#" class="btn-product btn-cart" title="Add to cart"><span>add to cart</span></a>
-                     </div><!-- End .product-action -->
-                   </figure><!-- End .product-media -->
-
-                   <div class="product-body">
-                     <div class="product-cat">
-                       <a href="#">Electronics</a>
-                     </div><!-- End .product-cat -->
-                     <h3 class="product-title"><a href="product-extended.html">Bose - SoundSport wireless headphones</a></h3><!-- End .product-title -->
-                     <div class="product-price">
-                       <span class="new-price">$179.99</span>
-                       <span class="old-price">Was $199.00</span>
-                     </div><!-- End .product-price -->
-                     <div class="ratings-container">
-                       <div class="ratings">
-                         <div class="ratings-val" style="width: 100%;"></div><!-- End .ratings-val -->
-                       </div><!-- End .ratings -->
-                       <span class="ratings-text">( 4 Reviews )</span>
-                     </div><!-- End .rating-container -->
-
-                     <div class="product-nav product-nav-dots">
-                       <a href="#" class="active" style="background: #69b4ff;"><span class="sr-only">Color name</span></a>
-                       <a href="#" style="background: #ff887f;"><span class="sr-only">Color name</span></a>
-                       <a href="#" style="background: #333333;"><span class="sr-only">Color name</span></a>
-                     </div><!-- End .product-nav -->
-                   </div><!-- End .product-body -->
-                 </div><!-- End .product -->
-
-                 <div class="product text-center">
-                   <figure class="product-media">
-                     <span class="product-label label-top">Top</span>
-                     <a href="product-extended.html">
-                       <img src="images/demos/demo-14/products/product-6.jpg" alt="Product image" class="product-image">
-                     </a>
-
-                     <div class="product-action-vertical">
-                       <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><span>add to wishlist</span></a>
-                       <a href="popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
-                       <a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a>
-                     </div><!-- End .product-action-vertical -->
-
-                     <div class="product-action">
-                       <a href="#" class="btn-product btn-cart" title="Add to cart"><span>add to cart</span></a>
-                     </div><!-- End .product-action -->
-                   </figure><!-- End .product-media -->
-
-                   <div class="product-body">
-                     <div class="product-cat">
-                       <a href="#">Laptops</a>
-                     </div><!-- End .product-cat -->
-                     <h3 class="product-title"><a href="product-extended.html">MacBook Pro 13" Display, i5</a></h3><!-- End .product-title -->
-                     <div class="product-price">
-                       $1,199.99
-                     </div><!-- End .product-price -->
-                     <div class="ratings-container">
-                       <div class="ratings">
-                         <div class="ratings-val" style="width: 100%;"></div><!-- End .ratings-val -->
-                       </div><!-- End .ratings -->
-                       <span class="ratings-text">( 4 Reviews )</span>
-                     </div><!-- End .rating-container -->
-                   </div><!-- End .product-body -->
-                 </div><!-- End .product -->
-
-                 <div class="product text-center">
-                   <figure class="product-media">
-                     <span class="product-label label-top">Top</span>
-                     <a href="product-extended.html">
-                       <img src="images/demos/demo-14/products/product-5.jpg" alt="Product image" class="product-image">
-                     </a>
-
-                     <div class="product-action-vertical">
-                       <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><span>add to wishlist</span></a>
-                       <a href="popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
-                       <a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a>
-                     </div><!-- End .product-action-vertical -->
-
-                     <div class="product-action">
-                       <a href="#" class="btn-product btn-cart" title="Add to cart"><span>add to cart</span></a>
-                     </div><!-- End .product-action -->
-                   </figure><!-- End .product-media -->
-
-                   <div class="product-body">
-                     <div class="product-cat">
-                       <a href="#">Electronics</a>
-                     </div><!-- End .product-cat -->
-                     <h3 class="product-title"><a href="product-extended.html">Sony - Class LED 2160p Smart <br>4K Ultra HD</a></h3><!-- End .product-title -->
-                     <div class="product-price">
-                       $1,699.99
-                     </div><!-- End .product-price -->
-                     <div class="ratings-container">
-                       <div class="ratings">
-                         <div class="ratings-val" style="width: 80%;"></div><!-- End .ratings-val -->
-                       </div><!-- End .ratings -->
-                       <span class="ratings-text">( 10 Reviews )</span>
-                     </div><!-- End .rating-container -->
-                   </div><!-- End .product-body -->
-                 </div><!-- End .product -->
+                                        <% productse.forEach(product => { %>
+                  
+                 
+                                          <div class="product text-center">
+                                            <figure class="product-media">
+                                        
+                                              <% if (product.is_sale) { %>
+                                                <span class="product-label label-sale">Sale</span>
+                                              <% } %>
+                                        
+                                              <img src="<%= product.image %>"
+                                                   alt="<%= product.title %>"
+                                                   class="product-image">
+                                        
+                                              <div class="product-action">
+                                                <a href="#" class="btn-product btn-cart">
+                                                  <span>add to cart</span>
+                                                </a>
+                                              </div>
+                                            </figure>
+                                        
+                                            <div class="product-body">
+                                              <h3 class="product-title"><%= product.title %></h3>
+                                        
+                                              <div class="product-price">
+                                                <span class="new-price">$<%= product.price %></span>
+                                                <% if (product.old_price) { %>
+                                                  <span class="old-price">Was $<%= product.old_price %></span>
+                                                <% } %>
+                                              </div>
+                                        
+                                              <div class="ratings">
+                                                <div class="ratings-val" style="width:<%= product.rating * 20 %>%"></div>
+                                              </div>
+                                              <span>(<%= product.reviews %> Reviews)</span>
+                                            </div>
+                                          </div>
+                                        
+                                        
+                                        <% }) %>
+                 
+                 
                </div><!-- End .owl-carousel -->
              </div><!-- .End .tab-pane -->
              <div class="tab-pane p-0 fade" id="trending-furn-tab" role="tabpanel" aria-labelledby="trending-furn-link">
@@ -786,228 +431,47 @@
                                                 }
                                             }
                                         }'>
-                 <div class="product text-center">
-                   <figure class="product-media">
-                     <span class="product-label label-top">Top</span>
-                     <a href="product-extended.html">
-                       <img src="images/demos/demo-14/products/product-6.jpg" alt="Product image" class="product-image">
-                     </a>
-
-                     <div class="product-action-vertical">
-                       <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><span>add to wishlist</span></a>
-                       <a href="popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
-                       <a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a>
-                     </div><!-- End .product-action-vertical -->
-
-                     <div class="product-action">
-                       <a href="#" class="btn-product btn-cart" title="Add to cart"><span>add to cart</span></a>
-                     </div><!-- End .product-action -->
-                   </figure><!-- End .product-media -->
-
-                   <div class="product-body">
-                     <div class="product-cat">
-                       <a href="#">Laptops</a>
-                     </div><!-- End .product-cat -->
-                     <h3 class="product-title"><a href="product-extended.html">MacBook Pro 13" Display, i5</a></h3><!-- End .product-title -->
-                     <div class="product-price">
-                       $1,199.99
-                     </div><!-- End .product-price -->
-                     <div class="ratings-container">
-                       <div class="ratings">
-                         <div class="ratings-val" style="width: 100%;"></div><!-- End .ratings-val -->
-                       </div><!-- End .ratings -->
-                       <span class="ratings-text">( 4 Reviews )</span>
-                     </div><!-- End .rating-container -->
-                   </div><!-- End .product-body -->
-                 </div><!-- End .product -->
-
-                 <div class="product text-center">
-                   <figure class="product-media">
-                     <span class="product-label label-sale">Sale</span>
-                     <a href="product-extended.html">
-                       <img src="images/demos/demo-14/products/product-2.jpg" alt="Product image" class="product-image">
-                     </a>
-
-                     <div class="product-countdown" data-until="+55h" data-relative="true" data-labels-short="true"></div><!-- End .product-countdown -->
-
-                     <div class="product-action-vertical">
-                       <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><span>add to wishlist</span></a>
-                       <a href="popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
-                       <a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a>
-                     </div><!-- End .product-action-vertical -->
-
-                     <div class="product-action">
-                       <a href="#" class="btn-product btn-cart" title="Add to cart"><span>add to cart</span></a>
-                     </div><!-- End .product-action -->
-                   </figure><!-- End .product-media -->
-
-                   <div class="product-body">
-                     <div class="product-cat">
-                       <a href="#">Electronics</a>
-                     </div><!-- End .product-cat -->
-                     <h3 class="product-title"><a href="product-extended.html">Bose - SoundSport wireless headphones</a></h3><!-- End .product-title -->
-                     <div class="product-price">
-                       <span class="new-price">$179.99</span>
-                       <span class="old-price">Was $199.00</span>
-                     </div><!-- End .product-price -->
-                     <div class="ratings-container">
-                       <div class="ratings">
-                         <div class="ratings-val" style="width: 100%;"></div><!-- End .ratings-val -->
-                       </div><!-- End .ratings -->
-                       <span class="ratings-text">( 4 Reviews )</span>
-                     </div><!-- End .rating-container -->
-
-                     <div class="product-nav product-nav-dots">
-                       <a href="#" class="active" style="background: #69b4ff;"><span class="sr-only">Color name</span></a>
-                       <a href="#" style="background: #ff887f;"><span class="sr-only">Color name</span></a>
-                       <a href="#" style="background: #333333;"><span class="sr-only">Color name</span></a>
-                     </div><!-- End .product-nav -->
-                   </div><!-- End .product-body -->
-                 </div><!-- End .product -->
-
-                 <div class="product text-center">
-                   <figure class="product-media">
-                     <a href="product-extended.html">
-                       <img src="images/demos/demo-14/products/product-3.jpg" alt="Product image" class="product-image">
-                     </a>
-
-                     <div class="product-action-vertical">
-                       <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><span>add to wishlist</span></a>
-                       <a href="popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
-                       <a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a>
-                     </div><!-- End .product-action-vertical -->
-
-                     <div class="product-action">
-                       <a href="#" class="btn-product btn-cart" title="Add to cart"><span>add to cart</span></a>
-                     </div><!-- End .product-action -->
-                   </figure><!-- End .product-media -->
-
-                   <div class="product-body">
-                     <div class="product-cat">
-                       <a href="#">Furniture</a>
-                     </div><!-- End .product-cat -->
-                     <h3 class="product-title"><a href="product-extended.html">Can 2-Seater Sofa frame charcoal</a></h3><!-- End .product-title -->
-                     <div class="product-price">
-                       $3,050.00
-                     </div><!-- End .product-price -->
-                     <div class="ratings-container">
-                       <div class="ratings">
-                         <div class="ratings-val" style="width: 60%;"></div><!-- End .ratings-val -->
-                       </div><!-- End .ratings -->
-                       <span class="ratings-text">( 8 Reviews )</span>
-                     </div><!-- End .rating-container -->
-
-                     <div class="product-nav product-nav-dots">
-                       <a href="#" class="active" style="background: #b58555;"><span class="sr-only">Color name</span></a>
-                       <a href="#" style="background: #93a6b0;"><span class="sr-only">Color name</span></a>
-                     </div><!-- End .product-nav -->
-                   </div><!-- End .product-body -->
-                 </div><!-- End .product -->
-
-                 <div class="product text-center">
-                   <figure class="product-media">
-                     <span class="product-label label-sale">Sale</span>
-                     <a href="product-extended.html">
-                       <img src="images/demos/demo-14/products/product-1.jpg" alt="Product image" class="product-image">
-                     </a>
-
-                     <div class="product-action-vertical">
-                       <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><span>add to wishlist</span></a>
-                       <a href="popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
-                       <a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a>
-                     </div><!-- End .product-action-vertical -->
-
-                     <div class="product-action">
-                       <a href="#" class="btn-product btn-cart" title="Add to cart"><span>add to cart</span></a>
-                     </div><!-- End .product-action -->
-                   </figure><!-- End .product-media -->
-
-                   <div class="product-body">
-                     <div class="product-cat">
-                       <a href="#">Furniture</a>
-                     </div><!-- End .product-cat -->
-                     <h3 class="product-title"><a href="product-extended.html">Butler Stool Ladder</a></h3><!-- End .product-title -->
-                     <div class="product-price">
-                       <span class="new-price">$251.99</span>
-                       <span class="old-price">Was $290.00</span>
-                     </div><!-- End .product-price -->
-                     <div class="ratings-container">
-                       <div class="ratings">
-                         <div class="ratings-val" style="width: 100%;"></div><!-- End .ratings-val -->
-                       </div><!-- End .ratings -->
-                       <span class="ratings-text">( 2 Reviews )</span>
-                     </div><!-- End .rating-container -->
-                   </div><!-- End .product-body -->
-                 </div><!-- End .product -->
-
-                 <div class="product text-center">
-                   <figure class="product-media">
-                     <span class="product-label label-top">Top</span>
-                     <a href="product-extended.html">
-                       <img src="images/demos/demo-14/products/product-5.jpg" alt="Product image" class="product-image">
-                     </a>
-
-                     <div class="product-action-vertical">
-                       <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><span>add to wishlist</span></a>
-                       <a href="popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
-                       <a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a>
-                     </div><!-- End .product-action-vertical -->
-
-                     <div class="product-action">
-                       <a href="#" class="btn-product btn-cart" title="Add to cart"><span>add to cart</span></a>
-                     </div><!-- End .product-action -->
-                   </figure><!-- End .product-media -->
-
-                   <div class="product-body">
-                     <div class="product-cat">
-                       <a href="#">Electronics</a>
-                     </div><!-- End .product-cat -->
-                     <h3 class="product-title"><a href="product-extended.html">Sony - Class LED 2160p Smart <br>4K Ultra HD</a></h3><!-- End .product-title -->
-                     <div class="product-price">
-                       $1,699.99
-                     </div><!-- End .product-price -->
-                     <div class="ratings-container">
-                       <div class="ratings">
-                         <div class="ratings-val" style="width: 80%;"></div><!-- End .ratings-val -->
-                       </div><!-- End .ratings -->
-                       <span class="ratings-text">( 10 Reviews )</span>
-                     </div><!-- End .rating-container -->
-                   </div><!-- End .product-body -->
-                 </div><!-- End .product -->
-
-                 <div class="product text-center">
-                   <figure class="product-media">
-                     <a href="product-extended.html">
-                       <img src="images/demos/demo-14/products/product-4.jpg" alt="Product image" class="product-image">
-                     </a>
-
-                     <div class="product-action-vertical">
-                       <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><span>add to wishlist</span></a>
-                       <a href="popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
-                       <a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a>
-                     </div><!-- End .product-action-vertical -->
-
-                     <div class="product-action">
-                       <a href="#" class="btn-product btn-cart" title="Add to cart"><span>add to cart</span></a>
-                     </div><!-- End .product-action -->
-                   </figure><!-- End .product-media -->
-
-                   <div class="product-body">
-                     <div class="product-cat">
-                       <a href="#">Clothes</a>
-                     </div><!-- End .product-cat -->
-                     <h3 class="product-title"><a href="product-extended.html">Tan suede biker jacket</a></h3><!-- End .product-title -->
-                     <div class="product-price">
-                       $240.00
-                     </div><!-- End .product-price -->
-                     <div class="ratings-container">
-                       <div class="ratings">
-                         <div class="ratings-val" style="width: 80%;"></div><!-- End .ratings-val -->
-                       </div><!-- End .ratings -->
-                       <span class="ratings-text">( 4 Reviews )</span>
-                     </div><!-- End .rating-container -->
-                   </div><!-- End .product-body -->
-                 </div><!-- End .product -->
+                                        <% productsk.forEach(product => { %>
+                  
+                 
+                                          <div class="product text-center">
+                                            <figure class="product-media">
+                                        
+                                              <% if (product.is_sale) { %>
+                                                <span class="product-label label-sale">Sale</span>
+                                              <% } %>
+                                        
+                                              <img src="<%= product.image %>"
+                                                   alt="<%= product.title %>"
+                                                   class="product-image">
+                                        
+                                              <div class="product-action">
+                                                <a href="#" class="btn-product btn-cart">
+                                                  <span>add to cart</span>
+                                                </a>
+                                              </div>
+                                            </figure>
+                                        
+                                            <div class="product-body">
+                                              <h3 class="product-title"><%= product.title %></h3>
+                                        
+                                              <div class="product-price">
+                                                <span class="new-price">$<%= product.price %></span>
+                                                <% if (product.old_price) { %>
+                                                  <span class="old-price">Was $<%= product.old_price %></span>
+                                                <% } %>
+                                              </div>
+                                        
+                                              <div class="ratings">
+                                                <div class="ratings-val" style="width:<%= product.rating * 20 %>%"></div>
+                                              </div>
+                                              <span>(<%= product.reviews %> Reviews)</span>
+                                            </div>
+                                          </div>
+                                        
+                                        
+                                        <% }) %>
+                 
                </div><!-- End .owl-carousel -->
              </div><!-- .End .tab-pane -->
              <div class="tab-pane p-0 fade" id="trending-cloth-tab" role="tabpanel" aria-labelledby="trending-cloth-link">
@@ -1039,194 +503,47 @@
                                                 }
                                             }
                                         }'>
-                 <div class="product text-center">
-                   <figure class="product-media">
-                     <span class="product-label label-sale">Sale</span>
-                     <a href="product-extended.html">
-                       <img src="images/demos/demo-14/products/product-1.jpg" alt="Product image" class="product-image">
-                     </a>
-
-                     <div class="product-action-vertical">
-                       <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><span>add to wishlist</span></a>
-                       <a href="popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
-                       <a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a>
-                     </div><!-- End .product-action-vertical -->
-
-                     <div class="product-action">
-                       <a href="#" class="btn-product btn-cart" title="Add to cart"><span>add to cart</span></a>
-                     </div><!-- End .product-action -->
-                   </figure><!-- End .product-media -->
-
-                   <div class="product-body">
-                     <div class="product-cat">
-                       <a href="#">Furniture</a>
-                     </div><!-- End .product-cat -->
-                     <h3 class="product-title"><a href="product-extended.html">Butler Stool Ladder</a></h3><!-- End .product-title -->
-                     <div class="product-price">
-                       <span class="new-price">$251.99</span>
-                       <span class="old-price">Was $290.00</span>
-                     </div><!-- End .product-price -->
-                     <div class="ratings-container">
-                       <div class="ratings">
-                         <div class="ratings-val" style="width: 100%;"></div><!-- End .ratings-val -->
-                       </div><!-- End .ratings -->
-                       <span class="ratings-text">( 2 Reviews )</span>
-                     </div><!-- End .rating-container -->
-                   </div><!-- End .product-body -->
-                 </div><!-- End .product -->
-
-                 <div class="product text-center">
-                   <figure class="product-media">
-                     <span class="product-label label-top">Top</span>
-                     <a href="product-extended.html">
-                       <img src="images/demos/demo-14/products/product-5.jpg" alt="Product image" class="product-image">
-                     </a>
-
-                     <div class="product-action-vertical">
-                       <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><span>add to wishlist</span></a>
-                       <a href="popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
-                       <a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a>
-                     </div><!-- End .product-action-vertical -->
-
-                     <div class="product-action">
-                       <a href="#" class="btn-product btn-cart" title="Add to cart"><span>add to cart</span></a>
-                     </div><!-- End .product-action -->
-                   </figure><!-- End .product-media -->
-
-                   <div class="product-body">
-                     <div class="product-cat">
-                       <a href="#">Electronics</a>
-                     </div><!-- End .product-cat -->
-                     <h3 class="product-title"><a href="product-extended.html">Sony - Class LED 2160p Smart <br>4K Ultra HD</a></h3><!-- End .product-title -->
-                     <div class="product-price">
-                       $1,699.99
-                     </div><!-- End .product-price -->
-                     <div class="ratings-container">
-                       <div class="ratings">
-                         <div class="ratings-val" style="width: 80%;"></div><!-- End .ratings-val -->
-                       </div><!-- End .ratings -->
-                       <span class="ratings-text">( 10 Reviews )</span>
-                     </div><!-- End .rating-container -->
-                   </div><!-- End .product-body -->
-                 </div><!-- End .product -->
-
-                 <div class="product text-center">
-                   <figure class="product-media">
-                     <span class="product-label label-top">Top</span>
-                     <a href="product-extended.html">
-                       <img src="images/demos/demo-14/products/product-6.jpg" alt="Product image" class="product-image">
-                     </a>
-
-                     <div class="product-action-vertical">
-                       <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><span>add to wishlist</span></a>
-                       <a href="popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
-                       <a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a>
-                     </div><!-- End .product-action-vertical -->
-
-                     <div class="product-action">
-                       <a href="#" class="btn-product btn-cart" title="Add to cart"><span>add to cart</span></a>
-                     </div><!-- End .product-action -->
-                   </figure><!-- End .product-media -->
-
-                   <div class="product-body">
-                     <div class="product-cat">
-                       <a href="#">Laptops</a>
-                     </div><!-- End .product-cat -->
-                     <h3 class="product-title"><a href="product-extended.html">MacBook Pro 13" Display, i5</a></h3><!-- End .product-title -->
-                     <div class="product-price">
-                       $1,199.99
-                     </div><!-- End .product-price -->
-                     <div class="ratings-container">
-                       <div class="ratings">
-                         <div class="ratings-val" style="width: 100%;"></div><!-- End .ratings-val -->
-                       </div><!-- End .ratings -->
-                       <span class="ratings-text">( 4 Reviews )</span>
-                     </div><!-- End .rating-container -->
-                   </div><!-- End .product-body -->
-                 </div><!-- End .product -->
-
-                 <div class="product text-center">
-                   <figure class="product-media">
-                     <span class="product-label label-sale">Sale</span>
-                     <a href="product-extended.html">
-                       <img src="images/demos/demo-14/products/product-2.jpg" alt="Product image" class="product-image">
-                     </a>
-
-                     <div class="product-countdown" data-until="+55h" data-relative="true" data-labels-short="true"></div><!-- End .product-countdown -->
-
-                     <div class="product-action-vertical">
-                       <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><span>add to wishlist</span></a>
-                       <a href="popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
-                       <a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a>
-                     </div><!-- End .product-action-vertical -->
-
-                     <div class="product-action">
-                       <a href="#" class="btn-product btn-cart" title="Add to cart"><span>add to cart</span></a>
-                     </div><!-- End .product-action -->
-                   </figure><!-- End .product-media -->
-
-                   <div class="product-body">
-                     <div class="product-cat">
-                       <a href="#">Electronics</a>
-                     </div><!-- End .product-cat -->
-                     <h3 class="product-title"><a href="product-extended.html">Bose - SoundSport wireless headphones</a></h3><!-- End .product-title -->
-                     <div class="product-price">
-                       <span class="new-price">$179.99</span>
-                       <span class="old-price">Was $199.00</span>
-                     </div><!-- End .product-price -->
-                     <div class="ratings-container">
-                       <div class="ratings">
-                         <div class="ratings-val" style="width: 100%;"></div><!-- End .ratings-val -->
-                       </div><!-- End .ratings -->
-                       <span class="ratings-text">( 4 Reviews )</span>
-                     </div><!-- End .rating-container -->
-
-                     <div class="product-nav product-nav-dots">
-                       <a href="#" class="active" style="background: #69b4ff;"><span class="sr-only">Color name</span></a>
-                       <a href="#" style="background: #ff887f;"><span class="sr-only">Color name</span></a>
-                       <a href="#" style="background: #333333;"><span class="sr-only">Color name</span></a>
-                     </div><!-- End .product-nav -->
-                   </div><!-- End .product-body -->
-                 </div><!-- End .product -->
-
-                 <div class="product text-center">
-                   <figure class="product-media">
-                     <a href="product-extended.html">
-                       <img src="images/demos/demo-14/products/product-3.jpg" alt="Product image" class="product-image">
-                     </a>
-
-                     <div class="product-action-vertical">
-                       <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><span>add to wishlist</span></a>
-                       <a href="popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
-                       <a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a>
-                     </div><!-- End .product-action-vertical -->
-
-                     <div class="product-action">
-                       <a href="#" class="btn-product btn-cart" title="Add to cart"><span>add to cart</span></a>
-                     </div><!-- End .product-action -->
-                   </figure><!-- End .product-media -->
-
-                   <div class="product-body">
-                     <div class="product-cat">
-                       <a href="#">Furniture</a>
-                     </div><!-- End .product-cat -->
-                     <h3 class="product-title"><a href="product-extended.html">Can 2-Seater Sofa frame charcoal</a></h3><!-- End .product-title -->
-                     <div class="product-price">
-                       $3,050.00
-                     </div><!-- End .product-price -->
-                     <div class="ratings-container">
-                       <div class="ratings">
-                         <div class="ratings-val" style="width: 60%;"></div><!-- End .ratings-val -->
-                       </div><!-- End .ratings -->
-                       <span class="ratings-text">( 8 Reviews )</span>
-                     </div><!-- End .rating-container -->
-
-                     <div class="product-nav product-nav-dots">
-                       <a href="#" class="active" style="background: #b58555;"><span class="sr-only">Color name</span></a>
-                       <a href="#" style="background: #93a6b0;"><span class="sr-only">Color name</span></a>
-                     </div><!-- End .product-nav -->
-                   </div><!-- End .product-body -->
-                 </div><!-- End .product -->
+                                        <% products.forEach(product => { %>
+                  
+                 
+                                          <div class="product text-center">
+                                            <figure class="product-media">
+                                        
+                                              <% if (product.is_sale) { %>
+                                                <span class="product-label label-sale">Sale</span>
+                                              <% } %>
+                                        
+                                              <img src="<%= product.image %>"
+                                                   alt="<%= product.title %>"
+                                                   class="product-image">
+                                        
+                                              <div class="product-action">
+                                                <a href="#" class="btn-product btn-cart">
+                                                  <span>add to cart</span>
+                                                </a>
+                                              </div>
+                                            </figure>
+                                        
+                                            <div class="product-body">
+                                              <h3 class="product-title"><%= product.title %></h3>
+                                        
+                                              <div class="product-price">
+                                                <span class="new-price">$<%= product.price %></span>
+                                                <% if (product.old_price) { %>
+                                                  <span class="old-price">Was $<%= product.old_price %></span>
+                                                <% } %>
+                                              </div>
+                                        
+                                              <div class="ratings">
+                                                <div class="ratings-val" style="width:<%= product.rating * 20 %>%"></div>
+                                              </div>
+                                              <span>(<%= product.reviews %> Reviews)</span>
+                                            </div>
+                                          </div>
+                                        
+                                        
+                                        <% }) %>
+                 
                </div><!-- End .owl-carousel -->
              </div><!-- .End .tab-pane -->
              <div class="tab-pane p-0 fade" id="trending-acc-tab" role="tabpanel" aria-labelledby="trending-acc-link">
@@ -1258,192 +575,47 @@
                                                 }
                                             }
                                         }'>
-                 <div class="product text-center">
-                   <figure class="product-media">
-                     <a href="product-extended.html">
-                       <img src="images/demos/demo-14/products/product-4.jpg" alt="Product image" class="product-image">
-                     </a>
-
-                     <div class="product-action-vertical">
-                       <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><span>add to wishlist</span></a>
-                       <a href="popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
-                       <a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a>
-                     </div><!-- End .product-action-vertical -->
-
-                     <div class="product-action">
-                       <a href="#" class="btn-product btn-cart" title="Add to cart"><span>add to cart</span></a>
-                     </div><!-- End .product-action -->
-                   </figure><!-- End .product-media -->
-
-                   <div class="product-body">
-                     <div class="product-cat">
-                       <a href="#">Clothes</a>
-                     </div><!-- End .product-cat -->
-                     <h3 class="product-title"><a href="product-extended.html">Tan suede biker jacket</a></h3><!-- End .product-title -->
-                     <div class="product-price">
-                       $240.00
-                     </div><!-- End .product-price -->
-                     <div class="ratings-container">
-                       <div class="ratings">
-                         <div class="ratings-val" style="width: 80%;"></div><!-- End .ratings-val -->
-                       </div><!-- End .ratings -->
-                       <span class="ratings-text">( 4 Reviews )</span>
-                     </div><!-- End .rating-container -->
-                   </div><!-- End .product-body -->
-                 </div><!-- End .product -->
-
-                 <div class="product text-center">
-                   <figure class="product-media">
-                     <a href="product-extended.html">
-                       <img src="images/demos/demo-14/products/product-3.jpg" alt="Product image" class="product-image">
-                     </a>
-
-                     <div class="product-action-vertical">
-                       <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><span>add to wishlist</span></a>
-                       <a href="popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
-                       <a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a>
-                     </div><!-- End .product-action-vertical -->
-
-                     <div class="product-action">
-                       <a href="#" class="btn-product btn-cart" title="Add to cart"><span>add to cart</span></a>
-                     </div><!-- End .product-action -->
-                   </figure><!-- End .product-media -->
-
-                   <div class="product-body">
-                     <div class="product-cat">
-                       <a href="#">Furniture</a>
-                     </div><!-- End .product-cat -->
-                     <h3 class="product-title"><a href="product-extended.html">Can 2-Seater Sofa frame charcoal</a></h3><!-- End .product-title -->
-                     <div class="product-price">
-                       $3,050.00
-                     </div><!-- End .product-price -->
-                     <div class="ratings-container">
-                       <div class="ratings">
-                         <div class="ratings-val" style="width: 60%;"></div><!-- End .ratings-val -->
-                       </div><!-- End .ratings -->
-                       <span class="ratings-text">( 8 Reviews )</span>
-                     </div><!-- End .rating-container -->
-
-                     <div class="product-nav product-nav-dots">
-                       <a href="#" class="active" style="background: #b58555;"><span class="sr-only">Color name</span></a>
-                       <a href="#" style="background: #93a6b0;"><span class="sr-only">Color name</span></a>
-                     </div><!-- End .product-nav -->
-                   </div><!-- End .product-body -->
-                 </div><!-- End .product -->
-
-                 <div class="product text-center">
-                   <figure class="product-media">
-                     <span class="product-label label-sale">Sale</span>
-                     <a href="product-extended.html">
-                       <img src="images/demos/demo-14/products/product-2.jpg" alt="Product image" class="product-image">
-                     </a>
-
-                     <div class="product-countdown" data-until="+55h" data-relative="true" data-labels-short="true"></div><!-- End .product-countdown -->
-
-                     <div class="product-action-vertical">
-                       <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><span>add to wishlist</span></a>
-                       <a href="popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
-                       <a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a>
-                     </div><!-- End .product-action-vertical -->
-
-                     <div class="product-action">
-                       <a href="#" class="btn-product btn-cart" title="Add to cart"><span>add to cart</span></a>
-                     </div><!-- End .product-action -->
-                   </figure><!-- End .product-media -->
-
-                   <div class="product-body">
-                     <div class="product-cat">
-                       <a href="#">Electronics</a>
-                     </div><!-- End .product-cat -->
-                     <h3 class="product-title"><a href="product-extended.html">Bose - SoundSport wireless headphones</a></h3><!-- End .product-title -->
-                     <div class="product-price">
-                       <span class="new-price">$179.99</span>
-                       <span class="old-price">Was $199.00</span>
-                     </div><!-- End .product-price -->
-                     <div class="ratings-container">
-                       <div class="ratings">
-                         <div class="ratings-val" style="width: 100%;"></div><!-- End .ratings-val -->
-                       </div><!-- End .ratings -->
-                       <span class="ratings-text">( 4 Reviews )</span>
-                     </div><!-- End .rating-container -->
-
-                     <div class="product-nav product-nav-dots">
-                       <a href="#" class="active" style="background: #69b4ff;"><span class="sr-only">Color name</span></a>
-                       <a href="#" style="background: #ff887f;"><span class="sr-only">Color name</span></a>
-                       <a href="#" style="background: #333333;"><span class="sr-only">Color name</span></a>
-                     </div><!-- End .product-nav -->
-                   </div><!-- End .product-body -->
-                 </div><!-- End .product -->
-
-                 <div class="product text-center">
-                   <figure class="product-media">
-                     <span class="product-label label-top">Top</span>
-                     <a href="product-extended.html">
-                       <img src="images/demos/demo-14/products/product-5.jpg" alt="Product image" class="product-image">
-                     </a>
-
-                     <div class="product-action-vertical">
-                       <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><span>add to wishlist</span></a>
-                       <a href="popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
-                       <a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a>
-                     </div><!-- End .product-action-vertical -->
-
-                     <div class="product-action">
-                       <a href="#" class="btn-product btn-cart" title="Add to cart"><span>add to cart</span></a>
-                     </div><!-- End .product-action -->
-                   </figure><!-- End .product-media -->
-
-                   <div class="product-body">
-                     <div class="product-cat">
-                       <a href="#">Electronics</a>
-                     </div><!-- End .product-cat -->
-                     <h3 class="product-title"><a href="product-extended.html">Sony - Class LED 2160p Smart <br>4K Ultra HD</a></h3><!-- End .product-title -->
-                     <div class="product-price">
-                       $1,699.99
-                     </div><!-- End .product-price -->
-                     <div class="ratings-container">
-                       <div class="ratings">
-                         <div class="ratings-val" style="width: 80%;"></div><!-- End .ratings-val -->
-                       </div><!-- End .ratings -->
-                       <span class="ratings-text">( 10 Reviews )</span>
-                     </div><!-- End .rating-container -->
-                   </div><!-- End .product-body -->
-                 </div><!-- End .product -->
-
-                 <div class="product text-center">
-                   <figure class="product-media">
-                     <span class="product-label label-top">Top</span>
-                     <a href="product-extended.html">
-                       <img src="images/demos/demo-14/products/product-6.jpg" alt="Product image" class="product-image">
-                     </a>
-
-                     <div class="product-action-vertical">
-                       <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><span>add to wishlist</span></a>
-                       <a href="popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
-                       <a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a>
-                     </div><!-- End .product-action-vertical -->
-
-                     <div class="product-action">
-                       <a href="#" class="btn-product btn-cart" title="Add to cart"><span>add to cart</span></a>
-                     </div><!-- End .product-action -->
-                   </figure><!-- End .product-media -->
-
-                   <div class="product-body">
-                     <div class="product-cat">
-                       <a href="#">Laptops</a>
-                     </div><!-- End .product-cat -->
-                     <h3 class="product-title"><a href="product-extended.html">MacBook Pro 13" Display, i5</a></h3><!-- End .product-title -->
-                     <div class="product-price">
-                       $1,199.99
-                     </div><!-- End .product-price -->
-                     <div class="ratings-container">
-                       <div class="ratings">
-                         <div class="ratings-val" style="width: 100%;"></div><!-- End .ratings-val -->
-                       </div><!-- End .ratings -->
-                       <span class="ratings-text">( 4 Reviews )</span>
-                     </div><!-- End .rating-container -->
-                   </div><!-- End .product-body -->
-                 </div><!-- End .product -->
+                                        <% products.forEach(product => { %>
+                  
+                 
+                                          <div class="product text-center">
+                                            <figure class="product-media">
+                                        
+                                              <% if (product.is_sale) { %>
+                                                <span class="product-label label-sale">Sale</span>
+                                              <% } %>
+                                        
+                                              <img src="<%= product.image %>"
+                                                   alt="<%= product.title %>"
+                                                   class="product-image">
+                                        
+                                              <div class="product-action">
+                                                <a href="#" class="btn-product btn-cart">
+                                                  <span>add to cart</span>
+                                                </a>
+                                              </div>
+                                            </figure>
+                                        
+                                            <div class="product-body">
+                                              <h3 class="product-title"><%= product.title %></h3>
+                                        
+                                              <div class="product-price">
+                                                <span class="new-price">$<%= product.price %></span>
+                                                <% if (product.old_price) { %>
+                                                  <span class="old-price">Was $<%= product.old_price %></span>
+                                                <% } %>
+                                              </div>
+                                        
+                                              <div class="ratings">
+                                                <div class="ratings-val" style="width:<%= product.rating * 20 %>%"></div>
+                                              </div>
+                                              <span>(<%= product.reviews %> Reviews)</span>
+                                            </div>
+                                          </div>
+                                        
+                                        
+                                        <% }) %>
+                 
                </div><!-- End .owl-carousel -->
              </div><!-- .End .tab-pane -->
            </div><!-- End .tab-content -->
@@ -1548,157 +720,7 @@
                  </div><!-- End .product-body -->
                </div><!-- End .product -->
 
-               <div class="product text-center">
-                 <figure class="product-media">
-                   <a href="product-extended.html">
-                     <img src="images/demos/demo-14/products/product-7.jpg" alt="Product image" class="product-image">
-                   </a>
-
-                   <div class="product-action-vertical">
-                     <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><span>add to wishlist</span></a>
-                     <a href="popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
-                     <a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a>
-                   </div><!-- End .product-action-vertical -->
-
-                   <div class="product-action">
-                     <a href="#" class="btn-product btn-cart" title="Add to cart"><span>add to cart</span></a>
-                   </div><!-- End .product-action -->
-                 </figure><!-- End .product-media -->
-
-                 <div class="product-body">
-                   <div class="product-cat">
-                     <a href="#">Audio</a>
-                   </div><!-- End .product-cat -->
-                   <h3 class="product-title"><a href="product-extended.html">Bose - SoundLink Bluetooth Speaker</a></h3><!-- End .product-title -->
-                   <div class="product-price">
-                     $79.99
-                   </div><!-- End .product-price -->
-                   <div class="ratings-container">
-                     <div class="ratings">
-                       <div class="ratings-val" style="width: 60%;"></div><!-- End .ratings-val -->
-                     </div><!-- End .ratings -->
-                     <span class="ratings-text">( 6 Reviews )</span>
-                   </div><!-- End .rating-container -->
-                 </div><!-- End .product-body -->
-               </div><!-- End .product -->
-
-               <div class="product text-center">
-                 <figure class="product-media">
-                   <span class="product-label label-new">New</span>
-                   <a href="product-extended.html">
-                     <img src="images/demos/demo-14/products/product-8.jpg" alt="Product image" class="product-image">
-                   </a>
-
-                   <div class="product-action-vertical">
-                     <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><span>add to wishlist</span></a>
-                     <a href="popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
-                     <a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a>
-                   </div><!-- End .product-action-vertical -->
-
-                   <div class="product-action">
-                     <a href="#" class="btn-product btn-cart" title="Add to cart"><span>add to cart</span></a>
-                   </div><!-- End .product-action -->
-                 </figure><!-- End .product-media -->
-
-                 <div class="product-body">
-                   <div class="product-cat">
-                     <a href="#">Tablets</a>
-                   </div><!-- End .product-cat -->
-                   <h3 class="product-title"><a href="product-extended.html">Apple - 11 Inch iPad Pro <br>with Wi-Fi 256GB </a></h3><!-- End .product-title -->
-                   <div class="product-price">
-                     $899.99
-                   </div><!-- End .product-price -->
-                   <div class="ratings-container">
-                     <div class="ratings">
-                       <div class="ratings-val" style="width: 60%;"></div><!-- End .ratings-val -->
-                     </div><!-- End .ratings -->
-                     <span class="ratings-text">( 6 Reviews )</span>
-                   </div><!-- End .rating-container -->
-
-                   <div class="product-nav product-nav-dots">
-                     <a href="#" style="background: #edd2c8;"><span class="sr-only">Color name</span></a>
-                     <a href="#" style="background: #eaeaec;"><span class="sr-only">Color name</span></a>
-                     <a href="#" class="active" style="background: #333333;"><span class="sr-only">Color name</span></a>
-                   </div><!-- End .product-nav -->
-                 </div><!-- End .product-body -->
-               </div><!-- End .product -->
-
-               <div class="product text-center">
-                 <figure class="product-media">
-                   <span class="product-label label-top">Top</span>
-                   <span class="product-label label-sale">Sale</span>
-                   <a href="product-extended.html">
-                     <img src="images/demos/demo-14/products/product-9.jpg" alt="Product image" class="product-image">
-                   </a>
-
-                   <div class="product-action-vertical">
-                     <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><span>add to wishlist</span></a>
-                     <a href="popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
-                     <a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a>
-                   </div><!-- End .product-action-vertical -->
-
-                   <div class="product-action">
-                     <a href="#" class="btn-product btn-cart" title="Add to cart"><span>add to cart</span></a>
-                   </div><!-- End .product-action -->
-                 </figure><!-- End .product-media -->
-
-                 <div class="product-body">
-                   <div class="product-cat">
-                     <a href="#">Cell Phone</a>
-                   </div><!-- End .product-cat -->
-                   <h3 class="product-title"><a href="product-extended.html">Google - Pixel 3 XL 128GB</a></h3><!-- End .product-title -->
-                   <div class="product-price">
-                     <span class="new-price">$350.00</span>
-                     <span class="old-price">Was $410.00</span>
-                   </div><!-- End .product-price -->
-                   <div class="ratings-container">
-                     <div class="ratings">
-                       <div class="ratings-val" style="width: 80%;"></div><!-- End .ratings-val -->
-                     </div><!-- End .ratings -->
-                     <span class="ratings-text">( 10 Reviews )</span>
-                   </div><!-- End .rating-container -->
-
-                   <div class="product-nav product-nav-dots">
-                     <a href="#" class="active" style="background: #edd2c8;"><span class="sr-only">Color name</span></a>
-                     <a href="#" style="background: #eaeaec;"><span class="sr-only">Color name</span></a>
-                   </div><!-- End .product-nav -->
-                 </div><!-- End .product-body -->
-               </div><!-- End .product -->
-
-               <div class="product text-center">
-                 <figure class="product-media">
-                   <span class="product-label label-top">Top</span>
-                   <a href="product-extended.html">
-                     <img src="images/demos/demo-14/products/product-6.jpg" alt="Product image" class="product-image">
-                   </a>
-
-                   <div class="product-action-vertical">
-                     <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><span>add to wishlist</span></a>
-                     <a href="popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
-                     <a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a>
-                   </div><!-- End .product-action-vertical -->
-
-                   <div class="product-action">
-                     <a href="#" class="btn-product btn-cart" title="Add to cart"><span>add to cart</span></a>
-                   </div><!-- End .product-action -->
-                 </figure><!-- End .product-media -->
-
-                 <div class="product-body">
-                   <div class="product-cat">
-                     <a href="#">Laptops</a>
-                   </div><!-- End .product-cat -->
-                   <h3 class="product-title"><a href="product-extended.html">MacBook Pro 13" Display, i5</a></h3><!-- End .product-title -->
-                   <div class="product-price">
-                     $1,199.99
-                   </div><!-- End .product-price -->
-                   <div class="ratings-container">
-                     <div class="ratings">
-                       <div class="ratings-val" style="width: 100%;"></div><!-- End .ratings-val -->
-                     </div><!-- End .ratings -->
-                     <span class="ratings-text">( 4 Reviews )</span>
-                   </div><!-- End .rating-container -->
-                 </div><!-- End .product-body -->
-               </div><!-- End .product -->
+               
              </div><!-- End .owl-carousel -->
            </div><!-- End .col-xl-9 -->
          </div><!-- End .row cat-banner-row -->
@@ -1807,159 +829,7 @@
                  </div><!-- End .product-body -->
                </div><!-- End .product -->
 
-               <div class="product text-center">
-                 <figure class="product-media">
-                   <a href="product-extended.html">
-                     <img src="images/demos/demo-14/products/product-11.jpg" alt="Product image" class="product-image">
-                   </a>
-
-                   <div class="product-action-vertical">
-                     <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><span>add to wishlist</span></a>
-                     <a href="popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
-                     <a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a>
-                   </div><!-- End .product-action-vertical -->
-
-                   <div class="product-action">
-                     <a href="#" class="btn-product btn-cart" title="Add to cart"><span>add to cart</span></a>
-                   </div><!-- End .product-action -->
-                 </figure><!-- End .product-media -->
-
-                 <div class="product-body">
-                   <div class="product-cat">
-                     <a href="#">Sofas</a>
-                   </div><!-- End .product-cat -->
-                   <h3 class="product-title"><a href="product-extended.html">Roots Sofa Bed</a></h3><!-- End .product-title -->
-                   <div class="product-price">
-                     $1,199.99
-                   </div><!-- End .product-price -->
-                   <div class="ratings-container">
-                     <div class="ratings">
-                       <div class="ratings-val" style="width: 100%;"></div><!-- End .ratings-val -->
-                     </div><!-- End .ratings -->
-                     <span class="ratings-text">( 4 Reviews )</span>
-                   </div><!-- End .rating-container -->
-                 </div><!-- End .product-body -->
-               </div><!-- End .product -->
-
-               <div class="product text-center">
-                 <figure class="product-media">
-                   <span class="product-label label-sale">Sale</span>
-                   <a href="product-extended.html">
-                     <img src="images/demos/demo-14/products/product-12.jpg" alt="Product image" class="product-image">
-                   </a>
-
-                   <div class="product-action-vertical">
-                     <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><span>add to wishlist</span></a>
-                     <a href="popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
-                     <a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a>
-                   </div><!-- End .product-action-vertical -->
-
-                   <div class="product-action">
-                     <a href="#" class="btn-product btn-cart" title="Add to cart"><span>add to cart</span></a>
-                   </div><!-- End .product-action -->
-                 </figure><!-- End .product-media -->
-
-                 <div class="product-body">
-                   <div class="product-cat">
-                     <a href="#">Lighting</a>
-                   </div><!-- End .product-cat -->
-                   <h3 class="product-title"><a href="product-extended.html">Carronade Large <br>Suspension Lamp</a></h3><!-- End .product-title -->
-                   <div class="product-price">
-                     <span class="new-price">$892.99</span>
-                     <span class="old-price">Was $931.00</span>
-                   </div><!-- End .product-price -->
-                   <div class="ratings-container">
-                     <div class="ratings">
-                       <div class="ratings-val" style="width: 60%;"></div><!-- End .ratings-val -->
-                     </div><!-- End .ratings -->
-                     <span class="ratings-text">( 6 Reviews )</span>
-                   </div><!-- End .rating-container -->
-
-                   <div class="product-nav product-nav-dots">
-                     <a href="#" class="active" style="background: #f7f6f5;"><span class="sr-only">Color name</span></a>
-                     <a href="#" style="background: #825a45;"><span class="sr-only">Color name</span></a>
-                   </div><!-- End .product-nav -->
-                 </div><!-- End .product-body -->
-               </div><!-- End .product -->
-
-               <div class="product text-center">
-                 <figure class="product-media">
-                   <a href="product-extended.html">
-                     <img src="images/demos/demo-14/products/product-13.jpg" alt="Product image" class="product-image">
-                   </a>
-
-                   <div class="product-action-vertical">
-                     <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><span>add to wishlist</span></a>
-                     <a href="popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
-                     <a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a>
-                   </div><!-- End .product-action-vertical -->
-
-                   <div class="product-action">
-                     <a href="#" class="btn-product btn-cart" title="Add to cart"><span>add to cart</span></a>
-                   </div><!-- End .product-action -->
-                 </figure><!-- End .product-media -->
-
-                 <div class="product-body">
-                   <div class="product-cat">
-                     <a href="#">Chairs</a>
-                   </div><!-- End .product-cat -->
-                   <h3 class="product-title"><a href="product-extended.html">Wingback Chair</a></h3><!-- End .product-title -->
-                   <div class="product-price">
-                     $210.00
-                   </div><!-- End .product-price -->
-                   <div class="ratings-container">
-                     <div class="ratings">
-                       <div class="ratings-val" style="width: 80%;"></div><!-- End .ratings-val -->
-                     </div><!-- End .ratings -->
-                     <span class="ratings-text">( 4 Reviews )</span>
-                   </div><!-- End .rating-container -->
-
-                   <div class="product-nav product-nav-dots">
-                     <a href="#" class="active" style="background: #999999;"><span class="sr-only">Color name</span></a>
-                     <a href="#" style="background: #cc9999;"><span class="sr-only">Color name</span></a>
-                   </div><!-- End .product-nav -->
-                 </div><!-- End .product-body -->
-               </div><!-- End .product -->
-
-               <div class="product text-center">
-                 <figure class="product-media">
-                   <span class="product-label label-new">New</span>
-                   <a href="product-extended.html">
-                     <img src="images/demos/demo-14/products/product-10.jpg" alt="Product image" class="product-image">
-                   </a>
-
-                   <div class="product-action-vertical">
-                     <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><span>add to wishlist</span></a>
-                     <a href="popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
-                     <a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a>
-                   </div><!-- End .product-action-vertical -->
-
-                   <div class="product-action">
-                     <a href="#" class="btn-product btn-cart" title="Add to cart"><span>add to cart</span></a>
-                   </div><!-- End .product-action -->
-                 </figure><!-- End .product-media -->
-
-                 <div class="product-body">
-                   <div class="product-cat">
-                     <a href="#">Tables</a>
-                   </div><!-- End .product-cat -->
-                   <h3 class="product-title"><a href="product-extended.html">Block Side Table/Trolley</a></h3><!-- End .product-title -->
-                   <div class="product-price">
-                     $299.99
-                   </div><!-- End .product-price -->
-                   <div class="ratings-container">
-                     <div class="ratings">
-                       <div class="ratings-val" style="width: 80%;"></div><!-- End .ratings-val -->
-                     </div><!-- End .ratings -->
-                     <span class="ratings-text">( 12 Reviews )</span>
-                   </div><!-- End .rating-container -->
-
-                   <div class="product-nav product-nav-dots">
-                     <a href="#" class="active" style="background: #333333;"><span class="sr-only">Color name</span></a>
-                     <a href="#" style="background: #e2e2e2;"><span class="sr-only">Color name</span></a>
-                   </div><!-- End .product-nav -->
-                 </div><!-- End .product-body -->
-               </div><!-- End .product -->
+               
              </div><!-- End .owl-carousel -->
            </div><!-- End .col-xl-9 -->
          </div><!-- End .row cat-banner-row -->
@@ -2094,147 +964,7 @@
                  </div><!-- End .product-body -->
                </div><!-- End .product -->
 
-               <div class="product text-center">
-                 <figure class="product-media">
-                   <span class="product-label label-new">New</span>
-                   <a href="product-extended.html">
-                     <img src="images/demos/demo-14/products/product-15.jpg" alt="Product image" class="product-image">
-                   </a>
-
-                   <div class="product-action-vertical">
-                     <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><span>add to wishlist</span></a>
-                     <a href="popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
-                     <a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a>
-                   </div><!-- End .product-action-vertical -->
-
-                   <div class="product-action">
-                     <a href="#" class="btn-product btn-cart" title="Add to cart"><span>add to cart</span></a>
-                   </div><!-- End .product-action -->
-                 </figure><!-- End .product-media -->
-
-                 <div class="product-body">
-                   <div class="product-cat">
-                     <a href="#">Accessories</a>
-                   </div><!-- End .product-cat -->
-                   <h3 class="product-title"><a href="product-extended.html">Black boucle check scarf</a></h3><!-- End .product-title -->
-                   <div class="product-price">
-                     $36.00
-                   </div><!-- End .product-price -->
-                   <div class="ratings-container">
-                     <div class="ratings">
-                       <div class="ratings-val" style="width: 100%;"></div><!-- End .ratings-val -->
-                     </div><!-- End .ratings -->
-                     <span class="ratings-text">( 4 Reviews )</span>
-                   </div><!-- End .rating-container -->
-                 </div><!-- End .product-body -->
-               </div><!-- End .product -->
-
-               <div class="product text-center">
-                 <figure class="product-media">
-                   <a href="product-extended.html">
-                     <img src="images/demos/demo-14/products/product-16.jpg" alt="Product image" class="product-image">
-                   </a>
-
-                   <div class="product-action-vertical">
-                     <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><span>add to wishlist</span></a>
-                     <a href="popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
-                     <a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a>
-                   </div><!-- End .product-action-vertical -->
-
-                   <div class="product-action">
-                     <a href="#" class="btn-product btn-cart" title="Add to cart"><span>add to cart</span></a>
-                   </div><!-- End .product-action -->
-                 </figure><!-- End .product-media -->
-
-                 <div class="product-body">
-                   <div class="product-cat">
-                     <a href="#">T-Shirts</a>
-                   </div><!-- End .product-cat -->
-                   <h3 class="product-title"><a href="product-extended.html">Carronade Large <br>Suspension Lamp</a></h3><!-- End .product-title -->
-                   <div class="product-price">
-                     $56.00
-                   </div><!-- End .product-price -->
-                   <div class="ratings-container">
-                     <div class="ratings">
-                       <div class="ratings-val" style="width: 60%;"></div><!-- End .ratings-val -->
-                     </div><!-- End .ratings -->
-                     <span class="ratings-text">( 6 Reviews )</span>
-                   </div><!-- End .rating-container -->
-                 </div><!-- End .product-body -->
-               </div><!-- End .product -->
-
-               <div class="product text-center">
-                 <figure class="product-media">
-                   <a href="product-extended.html">
-                     <img src="images/demos/demo-14/products/product-17.jpg" alt="Product image" class="product-image">
-                   </a>
-
-                   <div class="product-action-vertical">
-                     <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><span>add to wishlist</span></a>
-                     <a href="popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
-                     <a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a>
-                   </div><!-- End .product-action-vertical -->
-
-                   <div class="product-action">
-                     <a href="#" class="btn-product btn-cart" title="Add to cart"><span>add to cart</span></a>
-                   </div><!-- End .product-action -->
-                 </figure><!-- End .product-media -->
-
-                 <div class="product-body">
-                   <div class="product-cat">
-                     <a href="#">Bags</a>
-                   </div><!-- End .product-cat -->
-                   <h3 class="product-title"><a href="product-extended.html">Triple compartment cross body bag</a></h3><!-- End .product-title -->
-                   <div class="product-price">
-                     $64.00
-                   </div><!-- End .product-price -->
-                   <div class="ratings-container">
-                     <div class="ratings">
-                       <div class="ratings-val" style="width: 40%;"></div><!-- End .ratings-val -->
-                     </div><!-- End .ratings -->
-                     <span class="ratings-text">( 4 Reviews )</span>
-                   </div><!-- End .rating-container -->
-
-                   <div class="product-nav product-nav-dots">
-                     <a href="#" class="active" style="background: #f1f1f1;"><span class="sr-only">Color name</span></a>
-                     <a href="#" style="background: #333333;"><span class="sr-only">Color name</span></a>
-                   </div><!-- End .product-nav -->
-                 </div><!-- End .product-body -->
-               </div><!-- End .product -->
-
-               <div class="product text-center">
-                 <figure class="product-media">
-                   <a href="product-extended.html">
-                     <img src="images/demos/demo-14/products/product-14.jpg" alt="Product image" class="product-image">
-                   </a>
-
-                   <div class="product-action-vertical">
-                     <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><span>add to wishlist</span></a>
-                     <a href="popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
-                     <a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a>
-                   </div><!-- End .product-action-vertical -->
-
-                   <div class="product-action">
-                     <a href="#" class="btn-product btn-cart" title="Add to cart"><span>add to cart</span></a>
-                   </div><!-- End .product-action -->
-                 </figure><!-- End .product-media -->
-
-                 <div class="product-body">
-                   <div class="product-cat">
-                     <a href="#">Shoes</a>
-                   </div><!-- End .product-cat -->
-                   <h3 class="product-title"><a href="product-extended.html">Beige faux suede runner trainers</a></h3><!-- End .product-title -->
-                   <div class="product-price">
-                     $64.00
-                   </div><!-- End .product-price -->
-                   <div class="ratings-container">
-                     <div class="ratings">
-                       <div class="ratings-val" style="width: 80%;"></div><!-- End .ratings-val -->
-                     </div><!-- End .ratings -->
-                     <span class="ratings-text">( 12 Reviews )</span>
-                   </div><!-- End .rating-container -->
-                 </div><!-- End .product-body -->
-               </div><!-- End .product -->
+              
              </div><!-- End .owl-carousel -->
            </div><!-- End .col-xl-9 -->
          </div><!-- End .row cat-banner-row -->
@@ -2339,149 +1069,9 @@
                  </div><!-- End .product-body -->
                </div><!-- End .product -->
 
-               <div class="product text-center">
-                 <figure class="product-media">
-                   <a href="product-extended.html">
-                     <img src="images/demos/demo-14/products/product-19.jpg" alt="Product image" class="product-image">
-                   </a>
+               
 
-                   <div class="product-action-vertical">
-                     <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><span>add to wishlist</span></a>
-                     <a href="popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
-                     <a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a>
-                   </div><!-- End .product-action-vertical -->
-
-                   <div class="product-action">
-                     <a href="#" class="btn-product btn-cart" title="Add to cart"><span>add to cart</span></a>
-                   </div><!-- End .product-action -->
-                 </figure><!-- End .product-media -->
-
-                 <div class="product-body">
-                   <div class="product-cat">
-                     <a href="#">Dinnerware</a>
-                   </div><!-- End .product-cat -->
-                   <h3 class="product-title"><a href="product-extended.html">MoDRN Industrial 7 Piece</a></h3><!-- End .product-title -->
-                   <div class="product-price">
-                     $40.00
-                   </div><!-- End .product-price -->
-                   <div class="ratings-container">
-                     <div class="ratings">
-                       <div class="ratings-val" style="width: 60%;"></div><!-- End .ratings-val -->
-                     </div><!-- End .ratings -->
-                     <span class="ratings-text">( 3 Reviews )</span>
-                   </div><!-- End .rating-container -->
-                 </div><!-- End .product-body -->
-               </div><!-- End .product -->
-
-               <div class="product text-center">
-                 <figure class="product-media">
-                   <a href="product-extended.html">
-                     <img src="images/demos/demo-14/products/product-20.jpg" alt="Product image" class="product-image">
-                   </a>
-
-                   <div class="product-action-vertical">
-                     <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><span>add to wishlist</span></a>
-                     <a href="popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
-                     <a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a>
-                   </div><!-- End .product-action-vertical -->
-
-                   <div class="product-action">
-                     <a href="#" class="btn-product btn-cart" title="Add to cart"><span>add to cart</span></a>
-                   </div><!-- End .product-action -->
-                 </figure><!-- End .product-media -->
-
-                 <div class="product-body">
-                   <div class="product-cat">
-                     <a href="#">Cookware</a>
-                   </div><!-- End .product-cat -->
-                   <h3 class="product-title"><a href="product-extended.html">Cuisinart French Classic 3 Piece</a></h3><!-- End .product-title -->
-                   <div class="product-price">
-                     $44.99
-                   </div><!-- End .product-price -->
-                   <div class="ratings-container">
-                     <div class="ratings">
-                       <div class="ratings-val" style="width: 0%;"></div><!-- End .ratings-val -->
-                     </div><!-- End .ratings -->
-                     <span class="ratings-text">( 0 Reviews )</span>
-                   </div><!-- End .rating-container -->
-                 </div><!-- End .product-body -->
-               </div><!-- End .product -->
-
-               <div class="product text-center">
-                 <figure class="product-media">
-                   <span class="product-label label-new">New</span>
-                   <a href="product-extended.html">
-                     <img src="images/demos/demo-14/products/product-21.jpg" alt="Product image" class="product-image">
-                   </a>
-
-                   <div class="product-action-vertical">
-                     <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><span>add to wishlist</span></a>
-                     <a href="popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
-                     <a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a>
-                   </div><!-- End .product-action-vertical -->
-
-                   <div class="product-action">
-                     <a href="#" class="btn-product btn-cart" title="Add to cart"><span>add to cart</span></a>
-                   </div><!-- End .product-action -->
-                 </figure><!-- End .product-media -->
-
-                 <div class="product-body">
-                   <div class="product-cat">
-                     <a href="#">Cooking Appliances</a>
-                   </div><!-- End .product-cat -->
-                   <h3 class="product-title"><a href="product-extended.html">KitchenAid - KSB1570WH Classic 5-Speed Blender</a></h3><!-- End .product-title -->
-                   <div class="product-price">
-                     $75.00
-                   </div><!-- End .product-price -->
-                   <div class="ratings-container">
-                     <div class="ratings">
-                       <div class="ratings-val" style="width: 80%;"></div><!-- End .ratings-val -->
-                     </div><!-- End .ratings -->
-                     <span class="ratings-text">( 4 Reviews )</span>
-                   </div><!-- End .rating-container -->
-
-                   <div class="product-nav product-nav-dots">
-                     <a href="#" class="active" style="background: #f1f1f1;"><span class="sr-only">Color name</span></a>
-                     <a href="#" style="background: #c00b1b;"><span class="sr-only">Color name</span></a>
-                   </div><!-- End .product-nav -->
-                 </div><!-- End .product-body -->
-               </div><!-- End .product -->
-
-               <div class="product text-center">
-                 <figure class="product-media">
-                   <span class="product-label label-sale">Sale</span>
-                   <a href="product-extended.html">
-                     <img src="images/demos/demo-14/products/product-18.jpg" alt="Product image" class="product-image">
-                   </a>
-
-                   <div class="product-action-vertical">
-                     <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><span>add to wishlist</span></a>
-                     <a href="popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
-                     <a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a>
-                   </div><!-- End .product-action-vertical -->
-
-                   <div class="product-action">
-                     <a href="#" class="btn-product btn-cart" title="Add to cart"><span>add to cart</span></a>
-                   </div><!-- End .product-action -->
-                 </figure><!-- End .product-media -->
-
-                 <div class="product-body">
-                   <div class="product-cat">
-                     <a href="#">Cooking Appliances</a>
-                   </div><!-- End .product-cat -->
-                   <h3 class="product-title"><a href="product-extended.html">KitchenAid Professional 500 Series Stand Mixer</a></h3><!-- End .product-title -->
-                   <div class="product-price">
-                     <span class="new-price">$249.99</span>
-                     <span class="old-price">Was $299.99</span>
-                   </div><!-- End .product-price -->
-                   <div class="ratings-container">
-                     <div class="ratings">
-                       <div class="ratings-val" style="width: 100%;"></div><!-- End .ratings-val -->
-                     </div><!-- End .ratings -->
-                     <span class="ratings-text">( 7 Reviews )</span>
-                   </div><!-- End .rating-container -->
-                 </div><!-- End .product-body -->
-               </div><!-- End .product -->
+               
              </div><!-- End .owl-carousel -->
            </div><!-- End .col-xl-9 -->
          </div><!-- End .row cat-banner-row -->
@@ -2571,80 +1161,24 @@
                  <h4 class="widget-title"><span>Bestsellers</span></h4><!-- End .widget-title -->
 
                  <div class="products">
+                  <% bestSeller.forEach(product => { %>
+                  
                    <div class="product product-sm">
                      <figure class="product-media">
                        <a href="product-extended.html">
-                         <img src="images/demos/demo-14/products/small/product-1.jpg" alt="Product image" class="product-image">
+                         <img src="images/demos/demo-14/products/<%= product.image%>" alt="Product image" class="product-image">
                        </a>
                      </figure>
 
                      <div class="product-body">
-                       <h5 class="product-title"><a href="product-extended.html">Sceptre 50" Class FHD (1080P) LED TV</a></h5><!-- End .product-title -->
+                       <h5 class="product-title"><a href="product-extended.html"><%= product.title %></a></h5><!-- End .product-title -->
                        <div class="product-price">
-                         $199.99
+                        $<%= product.price %>
                        </div><!-- End .product-price -->
                      </div><!-- End .product-body -->
                    </div><!-- End .product product-sm -->
 
-                   <div class="product product-sm">
-                     <figure class="product-media">
-                       <a href="product-extended.html">
-                         <img src="images/demos/demo-14/products/small/product-2.jpg" alt="Product image" class="product-image">
-                       </a>
-                     </figure>
-
-                     <div class="product-body">
-                       <h5 class="product-title"><a href="product-extended.html">Red Cookware Set, 9 Piece</a></h5><!-- End .product-title -->
-                       <div class="product-price">
-                         $24.95
-                       </div><!-- End .product-price -->
-                     </div><!-- End .product-body -->
-                   </div><!-- End .product product-sm -->
-
-                   <div class="product product-sm">
-                     <figure class="product-media">
-                       <a href="product-extended.html">
-                         <img src="images/demos/demo-14/products/small/product-3.jpg" alt="Product image" class="product-image">
-                       </a>
-                     </figure>
-
-                     <div class="product-body">
-                       <h5 class="product-title"><a href="product-extended.html">Epson WorkForce WF-2750 All-in-One Wireless</a></h5><!-- End .product-title -->
-                       <div class="product-price">
-                         $49.99
-                       </div><!-- End .product-price -->
-                     </div><!-- End .product-body -->
-                   </div><!-- End .product product-sm -->
-
-                   <div class="product product-sm">
-                     <figure class="product-media">
-                       <a href="product-extended.html">
-                         <img src="images/demos/demo-14/products/small/product-4.jpg" alt="Product image" class="product-image">
-                       </a>
-                     </figure>
-
-                     <div class="product-body">
-                       <h5 class="product-title"><a href="product-extended.html">Stainless Steel Microwave Oven</a></h5><!-- End .product-title -->
-                       <div class="product-price">
-                         $64.84
-                       </div><!-- End .product-price -->
-                     </div><!-- End .product-body -->
-                   </div><!-- End .product product-sm -->
-
-                   <div class="product product-sm">
-                     <figure class="product-media">
-                       <a href="product-extended.html">
-                         <img src="images/demos/demo-14/products/small/product-5.jpg" alt="Product image" class="product-image">
-                       </a>
-                     </figure>
-
-                     <div class="product-body">
-                       <h5 class="product-title"><a href="product-extended.html">Fatboy Original Beanbag</a></h5><!-- End .product-title -->
-                       <div class="product-price">
-                         $49.99
-                       </div><!-- End .product-price -->
-                     </div><!-- End .product-body -->
-                   </div><!-- End .product product-sm -->
+                   <% }) %>
                  </div><!-- End .products -->
                </div><!-- End .widget widget-products -->
              </div><!-- End .col-sm-6 col-xl-12 -->
@@ -2790,51 +1324,7 @@
                      </div><!-- End .entry-body -->
                    </article><!-- End .entry -->
 
-                   <article class="entry">
-                     <figure class="entry-media">
-                       <a href="single.html">
-                         <img src="images/demos/demo-14/blog/post-2.jpg" alt="image desc">
-                       </a>
-                     </figure><!-- End .entry-media -->
-
-                     <div class="entry-body">
-                       <div class="entry-meta">
-                         <a href="#">Nov 22, 2018</a>, 0 Comments
-                       </div><!-- End .entry-meta -->
-
-                       <h5 class="entry-title">
-                         <a href="single.html">Vivamus vestibulum ntulla.</a>
-                       </h5><!-- End .entry-title -->
-
-                       <div class="entry-content">
-                         <p>Phasellus hendrerit. Pelletesque aliquet nibh necurna In nisi neque, aliquet vel, dapibus id ... </p>
-                         <a href="single.html" class="read-more">Read More</a>
-                       </div><!-- End .entry-content -->
-                     </div><!-- End .entry-body -->
-                   </article><!-- End .entry -->
-
-                   <article class="entry">
-                     <figure class="entry-media">
-                       <a href="single.html">
-                         <img src="images/demos/demo-14/blog/post-3.jpg" alt="image desc">
-                       </a>
-                     </figure><!-- End .entry-media -->
-
-                     <div class="entry-body">
-                       <div class="entry-meta">
-                         <a href="#">Nov 22, 2018</a>, 0 Comments
-                       </div><!-- End .entry-meta -->
-
-                       <h5 class="entry-title">
-                         <a href="single.html">Praesent placerat risus.</a>
-                       </h5><!-- End .entry-title -->
-
-                       <div class="entry-content">
-                         <p>Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc ...</p>
-                         <a href="single.html" class="read-more">Read More</a>
-                       </div><!-- End .entry-content -->
-                     </div><!-- End .entry-body -->
-                   </article><!-- End .entry -->
+                  
                  </div><!-- End .owl-carousel -->
                </div><!-- End .widget widget-posts -->
              </div><!-- End .col-sm-6 col-xl-12 -->

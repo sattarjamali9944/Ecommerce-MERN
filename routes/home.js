@@ -15,8 +15,7 @@ router.get('/about',homeController.getAbout);
 router.get('/shops',homeController.getAllShops);
 
 /* route for product */
-router.get('/get-allProducts',homeController.getAllProducts);
-router.post('/save-product',homeController.saveProduct);
+router.get('/search',homeController.searchs);
 
 /* route for coming-soon */
 router.get('/coming-soon',homeController.getComingSoon);

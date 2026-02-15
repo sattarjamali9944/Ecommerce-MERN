@@ -14,6 +14,8 @@ const PORT = process.env.PORT || 4000;
 
 const fetchData = require("./server/middlewares/dataMiddleware");
 app.use(fetchData);
+const loadCommonData = require('./server/middlewares/loadCommonData');
+app.use(loadCommonData);
 mongoose
 	.connect("mongodb://0.0.0.0:27017/e-commerce")
 	.then((result) => {

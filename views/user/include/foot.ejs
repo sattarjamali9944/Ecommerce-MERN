@@ -34,12 +34,63 @@ document.getElementById("loginForm").addEventListener("submit", async function (
     if (!data.success) {
         document.getElementById("errorMsg").innerText = data.message;
     } else {
-        window.location.href = "/dashboard";
+        window.location.href = "/dashboard-mysql";
     }
 });
+
+    document.getElementById("singupForm").addEventListener("submit", async function(e) {
+      e.preventDefault();
+    
+      const formData = new FormData(this);
+      alert(formData);
+    
+      const response = await fetch("/signups", {
+        method: "POST",
+        body: new URLSearchParams(formData)
+      });
+    
+      const data = await response.json();
+    
+      if (data.success) {
+        alert("Signup successful");
+      } else {
+        alert(data.message || "Signup failed");
+      }
+    });
+   
+  const searchInput = document.getElementById("search");
+  const resultsList = document.getElementById("results");
+
+  searchInput.addEventListener("keyup", async () => {
+    const query = searchInput.value.trim();
+
+    if (!query) {
+      resultsList.innerHTML = "";
+      return;
+    }
+
+    try {
+      const res = await fetch(`/search/?q=${encodeURIComponent(query)}`);
+      const { results } = await res.json();
+      
+
+      // show results
+      resultsList.innerHTML = results
+        .map(
+          (item) => `<p class="search-item" >
+        <a href="/product/${item.slug}" style="color:#000;">
+          ${item.title}
+        </a></p>`
+        )
+        .join("");
+    } catch (error) {
+      console.error("Search error:", error);
+    }
+  });
 </script>
 
-
+   
+    
 </body> 
 <!-- Mirrored from portotheme.com/html/hscode/index-14.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 02 Nov 2020 20:46:54 GMT -->
 </html>
