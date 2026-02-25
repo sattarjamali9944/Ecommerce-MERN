@@ -5,20 +5,42 @@ const db = require("../../db");
 /* get home  */
 exports.getHome = async (req, res) => {
 	try {
-		const [products, productse, productsk, bestSeller] = await Promise.all([
+		const [products, productse, productsk, bestSeller,
+			activeFirst,
+			activeSecond,
+			activeThird,
+			activeFourth,
+			activeFifth,
+		] = 
+		await Promise.all([
 			Productsm.getAllProducts(),
 			Productsm.getAllProductsElectronic(),
 			Productsm.getAllProductsKids(),
-			Productsm.getBestSeller()
+			Productsm.getBestSeller(),
+			Productsm.activeCategoriesLimitOne(),
+			Productsm.activeCategoriesLimitTwo(),
+			Productsm.activeCategoriesLimitThree(),
+			Productsm.activeCategoriesLimitFour(),
+			Productsm.activeCategoriesLimitFive(),
+
+			
+
+
+
 		]);
-	
+	   
 		res.render("user/dashboard", {
 			pageTitle: "Home",
 			currentMenu: "home",
 			products,
 			productse,
 			productsk,
-			bestSeller
+			bestSeller,
+			activeFirst,
+			activeSecond,
+			activeThird,
+			activeFourth,
+			activeFifth
 		});
 	} catch (error) {
 		console.error("Error fetching products:", error);

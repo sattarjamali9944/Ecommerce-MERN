@@ -50,3 +50,19 @@ exports.getAllProductsKids = async () => {
 exports.getBestSeller = async () =>{
   return await query(`SELECT * FROM products order by reviews DESC limit 0,5;`)
 }
+exports.activeCategoriesLimitOne = async () => {
+     return await query(`SELECT * FROM categories where status_active_banner_categories = 1 limit 0,1`)
+}
+exports.activeCategoriesLimitTwo = async () => {
+  return await query(`SELECT * FROM categories where status_active_banner_categories = 1 limit 1,2`)
+}
+
+exports.activeCategoriesLimitThree = async () => {
+  return await query(`SELECT * FROM categories where status_active_banner_categories = 1 limit 2,3`)
+}
+exports.activeCategoriesLimitFour = async () => {
+  return await query(`SELECT * FROM categories where status_active_banner_categories = 1 limit 3,4`)
+}
+exports.activeCategoriesLimitFive = async () => {
+  return await query(`SELECT * FROM categories where status_active_banner_categories = 1 limit 4,5`)
+}
